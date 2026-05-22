@@ -228,4 +228,443 @@
                 <div class="grid grid-cols-2 gap-4">
                     <div class="col-span-2"><label class="block text-[10px] font-bold text-sys-text-muted uppercase tracking-widest mb-1.5 ml-1">Item / Service</label><input type="text" id="item" required placeholder="Label Description" class="w-full glass-input rounded-xl px-3.5 py-2.5 text-sm"></div>
                     <div><label class="block text-[10px] font-bold text-sys-text-muted uppercase tracking-widest mb-1.5 ml-1">Amount (₹)</label><input type="number" id="price" required min="1" placeholder="0" class="w-full glass-input rounded-xl px-3.5 py-2.5 text-sm font-bold"></div>
-                    <div><label class="block text-[10px] font-bold text-sys-text-muted uppercase tracking-widest mb-1.5 ml-1">Category</label><select id="category" class="w-full glass-input rounded
+                    <div><label class="block text-[10px] font-bold text-sys-text-muted uppercase tracking-widest mb-1.5 ml-1">Category</label><select id="category" class="w-full glass-input rounded-xl px-3.5 py-2.5 text-sm"><option>Food & Dining</option><option>Shopping & Luxury</option><option>Groceries & Daily</option><option>Investments</option><option>Utilities & Bills</option><option>Travel & Fuel</option><option>Entertainment</option></select></div>
+                </div>
+
+                <div class="grid grid-cols-2 gap-4">
+                    <div><label class="block text-[10px] font-bold text-sys-text-muted uppercase tracking-widest mb-1.5 ml-1">Store/Brand</label><input type="text" id="store" placeholder="Provider" class="w-full glass-input rounded-xl px-3.5 py-2.5 text-sm"></div>
+                    <div><label class="block text-[10px] font-bold text-sys-text-muted uppercase tracking-widest mb-1.5 ml-1">Location</label><input type="text" id="location" placeholder="Site" class="w-full glass-input rounded-xl px-3.5 py-2.5 text-sm"></div>
+                    <div><label class="block text-[10px] font-bold text-sys-text-muted uppercase tracking-widest mb-1.5 ml-1">Date</label><input type="date" id="date" required class="w-full glass-input rounded-xl px-3.5 py-2.5 text-sm"></div>
+                    <div><label class="block text-[10px] font-bold text-sys-text-muted uppercase tracking-widest mb-1.5 ml-1">Time</label><input type="time" id="time" required class="w-full glass-input rounded-xl px-3.5 py-2.5 text-sm"></div>
+                </div>
+
+                <div class="grid grid-cols-2 gap-4">
+                    <div><label class="block text-[10px] font-bold text-sys-text-muted uppercase tracking-widest mb-1.5 ml-1">Payment</label><select id="paymentMethod" class="w-full glass-input rounded-xl px-3.5 py-2.5 text-sm"><option>UPI / PhonePe</option><option>Credit Card</option><option>Debit Card</option><option>Cash</option><option>Bank Transfer</option></select></div>
+                    <div><label class="block text-[10px] font-bold text-sys-text-muted uppercase tracking-widest mb-1.5 ml-1">Bill (Doc)</label><input type="file" id="receipt" accept="image/*, application/pdf" class="w-full text-xs text-sys-text-muted file:mr-2 file:py-1.5 file:px-3 file:rounded-lg file:border-0 file:text-[10px] file:font-bold file:bg-white/20 file:text-sys-text-main hover:file:bg-white/30 transition cursor-pointer glass-input rounded-xl p-1"></div>
+                    <div class="col-span-2"><textarea id="notes" placeholder="Metadata parameters..." class="w-full glass-input rounded-xl px-3.5 py-2.5 text-sm h-16 custom-scrollbar"></textarea></div>
+                </div>
+
+                <div class="flex gap-3 pt-2">
+                    <button type="submit" id="submitBtn" class="flex-1 btn-premium font-bold py-3.5 px-4 rounded-xl flex justify-center items-center gap-2"><i class="fa-solid fa-save"></i> Save</button>
+                    <button type="button" id="cancelEditBtn" onclick="resetForm()" class="hidden glass-panel hover:bg-white/20 text-sys-text-main font-bold py-3.5 px-5 rounded-xl transition"><i class="fa-solid fa-xmark"></i></button>
+                </div>
+            </form>
+
+            <div class="xl:col-span-8 space-y-6">
+                
+                <div class="glass-panel p-5 rounded-3xl no-print">
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                        <div><input type="text" id="searchKeyword" oninput="updateUI()" placeholder="Live Regex Search..." class="w-full glass-input rounded-xl px-4 py-2.5 text-sm"></div>
+                        <div>
+                            <select id="searchMonth" onchange="updateUI()" class="w-full glass-input rounded-xl px-4 py-2.5 text-sm">
+                                <option value="">All Chronological Months</option><option value="01">January</option><option value="02">February</option><option value="03">March</option><option value="04">April</option><option value="05">May</option><option value="06">June</option><option value="07">July</option><option value="08">August</option><option value="09">September</option><option value="10">October</option><option value="11">November</option><option value="12">December</option>
+                            </select>
+                        </div>
+                        <div><input type="date" id="searchDate" onchange="updateUI()" class="w-full glass-input rounded-xl px-4 py-2.5 text-sm"></div>
+                    </div>
+                </div>
+
+                <div class="glass-panel p-6 rounded-3xl flex flex-col h-[550px] ledger-container">
+                    <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-5 gap-4">
+                        <h2 class="text-lg font-extrabold text-sys-text-main flex items-center gap-2"><i class="fa-solid fa-database text-sys-text-muted"></i> Master Database</h2>
+                        <div class="flex flex-wrap gap-2 no-print">
+                            <input type="file" id="importDatabaseFile" class="hidden" accept=".json" onchange="importDatabase(event)">
+                            <button onclick="document.getElementById('importDatabaseFile').click()" class="text-xs glass-panel hover:bg-white/20 text-sys-text-main font-bold px-3 py-1.5 rounded-lg transition flex items-center gap-1.5"><i class="fa-solid fa-file-import text-dev-main"></i> Restore</button>
+                            <button onclick="exportDatabase()" class="text-xs glass-panel hover:bg-white/20 text-sys-text-main font-bold px-3 py-1.5 rounded-lg transition flex items-center gap-1.5"><i class="fa-solid fa-file-export text-dev-main"></i> Backup</button>
+                            <button onclick="clearAllData()" class="text-xs bg-rose-500/10 border border-rose-500/20 text-rose-500 font-bold px-3 py-1.5 rounded-lg transition flex items-center gap-1.5"><i class="fa-solid fa-trash-can"></i> Clear</button>
+                        </div>
+                    </div>
+
+                    <div class="overflow-y-auto flex-1 custom-scrollbar glass-input rounded-2xl border-none">
+                        <table class="w-full text-left border-collapse">
+                            <thead>
+                                <tr class="text-[10px] font-bold uppercase tracking-widest text-sys-text-muted sticky top-0 z-10" style="background: rgba(128,128,128,0.1); backdrop-filter: blur(8px);">
+                                    <th class="py-4 px-5">Profile</th><th class="py-4 px-4">Details</th><th class="py-4 px-4">Context</th><th class="py-4 px-5 text-right">Amount</th><th class="py-4 px-4 no-print text-center"><i class="fa-solid fa-receipt"></i></th><th class="py-4 px-3 no-print"></th>
+                                </tr>
+                            </thead>
+                            <tbody id="ledgerBody" class="divide-y divide-white/10 text-sm"></tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // ARCHITECTURE UPGRADE: Unified Master Object
+        let vaultMasterKey = ""; 
+        let database = { expenses: [], users: [] };
+
+        function changeTheme() { const theme = document.getElementById('themeSelector').value; document.documentElement.setAttribute('data-theme', theme); localStorage.setItem('coach_theme', theme); }
+
+        // --- GATEWAY SECURITY LOGIC ---
+        window.onload = function() {
+            const encryptedDatabasePayload = localStorage.getItem('dev_paddy_crypto_vault');
+            if (!encryptedDatabasePayload) {
+                document.getElementById('securityGatewayTitle').innerText = "Create Master Passphrase";
+                document.getElementById('securityGatewaySub').innerText = "Establish a strong local key to lock your ledger database.";
+                document.getElementById('gatewayAuthBtn').innerHTML = `<i class="fa-solid fa-shield-cat"></i> Initialize Secure Vault`;
+            }
+            document.getElementById('masterPasswordField').focus();
+            
+            document.getElementById('masterPasswordField').addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') authenticateSecurityGateway();
+            });
+        };
+
+        function authenticateSecurityGateway() {
+            const passwordInput = document.getElementById('masterPasswordField').value;
+            if (!passwordInput) return alert("Security key validation failure: field empty.");
+
+            const rawCiphertext = localStorage.getItem('dev_paddy_crypto_vault');
+
+            if (!rawCiphertext) {
+                vaultMasterKey = passwordInput;
+                database = { expenses: [], users: [] };
+                saveEncryptedDatabase();
+                unlockUiGateway();
+                checkClipboardForSMS();
+            } else {
+                try {
+                    const bytes = CryptoJS.AES.decrypt(rawCiphertext, passwordInput);
+                    const plaintextDataString = bytes.toString(CryptoJS.enc.Utf8);
+                    if (!plaintextDataString) throw new Error("Checksum mismatch");
+
+                    const parsedData = JSON.parse(plaintextDataString);
+                    
+                    if (Array.isArray(parsedData)) {
+                        database = { expenses: parsedData, users: [] };
+                        const existingSpenders = [...new Set(parsedData.map(e => e.spender))];
+                        existingSpenders.forEach(name => {
+                            database.users.push({ id: Date.now() + Math.random(), name: name, age: 0, gender: "Other", relation: "Migrated Profile" });
+                        });
+                        saveEncryptedDatabase(); 
+                    } else { database = parsedData; }
+
+                    vaultMasterKey = passwordInput; 
+                    unlockUiGateway();
+                    updateUI();
+                    checkClipboardForSMS();
+
+                } catch (error) {
+                    document.getElementById('securityGatewayError').classList.remove('hidden');
+                    document.getElementById('masterPasswordField').value = '';
+                    document.getElementById('masterPasswordField').focus();
+                }
+            }
+        }
+
+        function saveEncryptedDatabase() {
+            if (!vaultMasterKey) return;
+            const databaseString = JSON.stringify(database);
+            const encryptedString = CryptoJS.AES.encrypt(databaseString, vaultMasterKey).toString();
+            localStorage.setItem('dev_paddy_crypto_vault', encryptedString);
+        }
+
+        function unlockUiGateway() {
+            document.getElementById('securityShieldGateway').classList.add('hidden');
+            document.getElementById('coachMessage').innerText = "Vault authenticated. Running system baseline diagnostics...";
+            document.getElementById('themeSelector').value = (localStorage.getItem('coach_theme') || 'default');
+        }
+
+        function lockVault() {
+            vaultMasterKey = "";
+            database = { expenses: [], users: [] };
+            document.getElementById('masterPasswordField').value = '';
+            document.getElementById('securityGatewayError').classList.add('hidden');
+            document.getElementById('securityShieldGateway').classList.remove('hidden');
+            document.getElementById('securityGatewayTitle').innerText = "Vault Locked";
+            document.getElementById('securityGatewaySub').innerText = "Provide master passphrase to re-authenticate runtime environment.";
+            document.getElementById('gatewayAuthBtn').innerHTML = `<i class="fa-solid fa-unlock"></i> Unlock Local Vault`;
+            document.getElementById('masterPasswordField').focus();
+            document.getElementById('ledgerBody').innerHTML = '';
+            document.getElementById('dynamicSpendersContainer').innerHTML = '';
+            document.getElementById('dashboardCards').innerHTML = '';
+        }
+
+        // --- DYNAMIC USERS MANAGEMENT ---
+        function toggleUsersModal() {
+            const m = document.getElementById('usersModal');
+            m.classList.toggle('hidden');
+            if(!m.classList.contains('hidden')) renderUserManagementList();
+        }
+
+        function renderUserManagementList() {
+            const list = document.getElementById('activeUsersList');
+            if(database.users.length === 0) {
+                list.innerHTML = `<p class="col-span-2 text-sm text-sys-text-muted">No profiles active. Add one below.</p>`; return;
+            }
+            list.innerHTML = database.users.map(u => `
+                <div class="glass-input rounded-xl p-3 flex justify-between items-center border-none" style="background: rgba(128,128,128,0.1);">
+                    <div>
+                        <div class="font-extrabold text-sys-text-main text-sm">${u.name} <span class="text-[9px] uppercase tracking-wider glass-panel px-2 py-0.5 rounded-full ml-1 text-sys-text-muted border-none">${u.relation}</span></div>
+                        <div class="text-[11px] text-sys-text-muted mt-1">${u.age} yrs • ${u.gender}</div>
+                    </div>
+                    <button onclick="deleteUser(${u.id})" class="text-rose-500 hover:bg-rose-500/20 p-2 rounded-lg transition"><i class="fa-solid fa-trash"></i></button>
+                </div>
+            `).join('');
+        }
+
+        document.getElementById('newUserForm').addEventListener('submit', (e) => {
+            e.preventDefault();
+            const name = document.getElementById('newUserName').value.trim();
+            if(database.users.some(u => u.name.toLowerCase() === name.toLowerCase())) return alert("Profile exists.");
+            
+            database.users.push({ id: Date.now(), name: name, age: document.getElementById('newUserAge').value, gender: document.getElementById('newUserGender').value, relation: document.getElementById('newUserRelation').value });
+            saveEncryptedDatabase(); e.target.reset(); renderUserManagementList(); updateUI(); 
+        });
+
+        function deleteUser(id) {
+            const user = database.users.find(u => u.id === id);
+            if(database.expenses.some(e => e.spender === user.name)) return alert(`Cannot delete ${user.name}. Active transaction records exist.`);
+            if(confirm(`Remove profile: ${user.name}?`)) { database.users = database.users.filter(u => u.id !== id); saveEncryptedDatabase(); renderUserManagementList(); updateUI(); }
+        }
+
+        // --- DATABASE IO ---
+        function exportDatabase() {
+            if (database.expenses.length === 0 && database.users.length === 0) return alert("Zero payload records.");
+            const a = document.createElement('a'); a.href = URL.createObjectURL(new Blob([JSON.stringify(database, null, 2)], { type: "application/json" }));
+            a.download = `SecureVault_Backup_${new Date().toISOString().split('T')[0]}.json`;
+            document.body.appendChild(a); a.click(); document.body.removeChild(a);
+        }
+
+        function importDatabase(event) {
+            const file = event.target.files[0]; if (!file) return;
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                try {
+                    const parsedData = JSON.parse(e.target.result);
+                    if (confirm("OVERWRITE data? (Click 'Cancel' to MERGE).")) {
+                        if(Array.isArray(parsedData)) database = { expenses: parsedData, users: [] }; else database = parsedData;
+                    } else {
+                        if(Array.isArray(parsedData)) database.expenses = [...database.expenses, ...parsedData];
+                        else { database.expenses = [...database.expenses, ...(parsedData.expenses || [])]; database.users = [...database.users, ...(parsedData.users || [])]; }
+                    }
+                    saveEncryptedDatabase(); updateUI();
+                } catch (err) { alert("Data structural error."); }
+            }; reader.readAsText(file); event.target.value = ''; 
+        }
+
+        // --- API CONFIG ---
+        function getApiKey() { 
+            const encryptedKey = localStorage.getItem('coach_api_key_encrypted');
+            if(!encryptedKey || !vaultMasterKey) return null;
+            try { return CryptoJS.AES.decrypt(encryptedKey, vaultMasterKey).toString(CryptoJS.enc.Utf8); } catch(e) { return null; }
+        }
+        function saveApiKey() { 
+            const val = document.getElementById('apiKeyInput').value.trim(); 
+            if(val && vaultMasterKey) { localStorage.setItem('coach_api_key_encrypted', CryptoJS.AES.encrypt(val, vaultMasterKey).toString()); } 
+            else { localStorage.removeItem('coach_api_key_encrypted'); }
+            updateApiStatus(); toggleApiModal(); 
+        }
+        function toggleApiModal() { const m = document.getElementById('apiModal'); m.classList.toggle('hidden'); if(!m.classList.contains('hidden') && getApiKey()) document.getElementById('apiKeyInput').value = getApiKey(); }
+        function updateApiStatus() { document.getElementById('aiStatus').innerHTML = getApiKey() ? `<span class="w-1.5 h-1.5 rounded-full bg-emerald-500 shadow-[0_0_8px_rgba(16,185,129,0.8)] animate-pulse"></span> Gemini Encrypted-Active` : `<span class="w-1.5 h-1.5 rounded-full bg-amber-500 shadow-[0_0_8px_rgba(245,158,11,0.8)]"></span> Local Mode`; }
+
+        // --- PIPELINE CONTROLS ---
+        document.getElementById('date').value = new Date().toISOString().split('T')[0];
+        document.getElementById('time').value = `${String(new Date().getHours()).padStart(2, '0')}:${String(new Date().getMinutes()).padStart(2, '0')}`;
+
+        function compressImage(file, callback) {
+            const reader = new FileReader(); reader.readAsDataURL(file);
+            reader.onload = e => {
+                const img = new Image(); img.src = e.target.result;
+                img.onload = () => {
+                    const cvs = document.createElement('canvas'); const scale = 600 / img.width;
+                    cvs.width = 600; cvs.height = img.height * scale;
+                    cvs.getContext('2d').drawImage(img, 0, 0, cvs.width, cvs.height);
+                    callback(cvs.toDataURL('image/jpeg', 0.6));
+                }
+            };
+        }
+
+        const form = document.getElementById('expenseForm');
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const selectedSpender = document.querySelector('input[name="spender"]:checked');
+            if(!selectedSpender) return alert("You must create a Profile first!");
+
+            const file = document.getElementById('receipt').files[0];
+            const editId = document.getElementById('editingId').value;
+            let existingImage = null; if(editId) { const existingExp = database.expenses.find(ex => ex.id === parseInt(editId)); if(existingExp) existingImage = existingExp.receiptImage; }
+
+            const expData = {
+                id: editId ? parseInt(editId) : Date.now(), spender: selectedSpender.value, item: document.getElementById('item').value,
+                price: parseFloat(document.getElementById('price').value), category: document.getElementById('category').value, store: document.getElementById('store').value || '-', location: document.getElementById('location').value || '-',
+                date: document.getElementById('date').value, time: document.getElementById('time').value, paymentMethod: document.getElementById('paymentMethod').value, notes: document.getElementById('notes').value, receiptImage: existingImage
+            };
+
+            if (file) {
+                if (file.type === 'application/pdf') { if (file.size > 1.5 * 1024 * 1024) return alert("PDF > 1.5MB."); const reader = new FileReader(); reader.readAsDataURL(file); reader.onload = (ev) => { expData.receiptImage = ev.target.result; finalizeSave(expData, !!editId); }; } 
+                else if (file.type.startsWith('image/')) { compressImage(file, (base64) => { expData.receiptImage = base64; finalizeSave(expData, !!editId); }); } else alert("MIME validation failure.");
+            } else { finalizeSave(expData, !!editId); }
+        });
+
+        function finalizeSave(expData, isEdit) {
+            if(isEdit) { const idx = database.expenses.findIndex(e => e.id === expData.id); if(idx !== -1) database.expenses[idx] = expData; } else { database.expenses.unshift(expData); }
+            saveEncryptedDatabase(); updateUI(); resetForm();
+        }
+
+        function editExpense(id) {
+            const exp = database.expenses.find(e => e.id === id);
+            document.getElementById('editingId').value = exp.id;
+            renderFormSpenders(exp.spender);
+            document.getElementById('item').value = exp.item; document.getElementById('price').value = exp.price; document.getElementById('category').value = exp.category; document.getElementById('store').value = exp.store !== '-' ? exp.store : '';
+            document.getElementById('location').value = exp.location !== '-' ? exp.location : ''; document.getElementById('date').value = exp.date; document.getElementById('time').value = exp.time; document.getElementById('paymentMethod').value = exp.paymentMethod; document.getElementById('notes').value = exp.notes;
+            
+            document.getElementById('formTitle').innerHTML = '<i class="fa-solid fa-edit text-dev-main"></i> Edit Transaction';
+            document.getElementById('submitBtn').innerHTML = '<i class="fa-solid fa-arrows-rotate"></i> Update';
+            document.getElementById('cancelEditBtn').classList.remove('hidden'); window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function resetForm() {
+            document.getElementById('editingId').value = ''; document.getElementById('receipt').value = '';
+            document.getElementById('formTitle').innerHTML = '<i class="fa-solid fa-plus-circle text-dev-main"></i> New Transaction';
+            document.getElementById('submitBtn').innerHTML = '<i class="fa-solid fa-save"></i> Save'; document.getElementById('cancelEditBtn').classList.add('hidden');
+            form.reset(); renderFormSpenders(); 
+            document.getElementById('date').value = new Date().toISOString().split('T')[0]; document.getElementById('time').value = `${String(new Date().getHours()).padStart(2, '0')}:${String(new Date().getMinutes()).padStart(2, '0')}`;
+        }
+
+        function deleteExpense(id) { if(confirm("Confirm row deletion sequence?")) { database.expenses = database.expenses.filter(exp => exp.id !== id); saveEncryptedDatabase(); updateUI(); } }
+        function clearAllData() { if(confirm("Wipe system flash storage?")) { database.expenses = []; saveEncryptedDatabase(); updateUI(); } }
+
+        function viewReceipt(base64) {
+            const container = document.getElementById('receiptContainer');
+            if (base64.startsWith('data:application/pdf')) container.innerHTML = `<iframe src="${base64}" class="w-full h-full border-0 rounded-2xl"></iframe>`;
+            else container.innerHTML = `<img src="${base64}" class="w-full h-full object-contain p-2 rounded-2xl">`;
+            document.getElementById('receiptModal').classList.remove('hidden');
+        }
+        function closeReceipt() { document.getElementById('receiptModal').classList.add('hidden'); document.getElementById('receiptContainer').innerHTML = ''; }
+
+        // --- DYNAMIC RENDERING ---
+        function renderFormSpenders(preSelectedName = null) {
+            const container = document.getElementById('dynamicSpendersContainer'); const warning = document.getElementById('noUsersWarning');
+            if (database.users.length === 0) { container.innerHTML = ''; warning.classList.remove('hidden'); document.getElementById('submitBtn').disabled = true; document.getElementById('submitBtn').classList.add('opacity-50', 'cursor-not-allowed'); return; }
+            warning.classList.add('hidden'); document.getElementById('submitBtn').disabled = false; document.getElementById('submitBtn').classList.remove('opacity-50', 'cursor-not-allowed');
+
+            container.innerHTML = database.users.map((u, i) => {
+                const isChecked = preSelectedName ? (u.name === preSelectedName) : (i === 0);
+                return `<label class="glass-input rounded-xl p-3 flex items-center justify-center gap-2 cursor-pointer hover:bg-white/20 transition has-[:checked]:border-dev-main has-[:checked]:shadow-[inset_0_0_15px_rgba(79,70,229,0.1)]">
+                    <input type="radio" name="spender" value="${u.name}" ${isChecked ? 'checked' : ''} class="accent-dev-main"><span class="text-sm font-extrabold text-sys-text-main">${u.name}</span>
+                </label>`;
+            }).join('');
+        }
+
+        function updateUI() {
+            updateApiStatus(); renderFormSpenders(document.querySelector('input[name="spender"]:checked')?.value);
+            
+            const kw = document.getElementById('searchKeyword').value.toLowerCase(); const fMonth = document.getElementById('searchMonth').value; const fDate = document.getElementById('searchDate').value;
+            let total = 0; let userTotals = {}; database.users.forEach(u => userTotals[u.name] = 0);
+
+            const tbody = document.getElementById('ledgerBody'); tbody.innerHTML = '';
+
+            let filtered = database.expenses.filter(exp => {
+                let match = true;
+                if(kw) match = exp.item.toLowerCase().includes(kw) || exp.store.toLowerCase().includes(kw) || exp.notes.toLowerCase().includes(kw) || exp.category.toLowerCase().includes(kw);
+                if(match && fDate) match = exp.date === fDate;
+                if(match && fMonth) { const expMonthNum = exp.date.split('-')[1]; match = expMonthNum === fMonth; }
+                return match;
+            });
+
+            if (filtered.length === 0) {
+                tbody.innerHTML = `<tr><td colspan="6" class="text-center py-16 text-sys-text-muted font-bold">No vault records found matching your active filter configuration.</td></tr>`;
+            } else {
+                filtered.forEach(exp => {
+                    total += exp.price;
+                    if(userTotals[exp.spender] !== undefined) userTotals[exp.spender] += exp.price; else userTotals[exp.spender] = exp.price; 
+
+                    const formattedDate = new Date(exp.date).toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' });
+                    let iconType = "fa-image"; if (exp.receiptImage && exp.receiptImage.startsWith('data:application/pdf')) iconType = "fa-file-pdf";
+                    const receiptBtn = exp.receiptImage ? `<button onclick="viewReceipt('${exp.receiptImage}')" class="text-dev-main hover:bg-white/10 p-2 rounded-xl transition border border-white/10"><i class="fa-solid ${iconType}"></i></button>` : `<span class="text-sys-border">-</span>`;
+
+                    tbody.innerHTML += `
+                        <tr class="hover:bg-black/5 dark:hover:bg-white/5 transition-colors group">
+                            <td class="py-4 px-5"><span class="px-3 py-1 rounded-full text-xs font-extrabold glass-panel shadow-sm">${exp.spender}</span></td>
+                            <td class="py-4 px-4">
+                                <div class="font-extrabold text-sys-text-main">${exp.item}</div>
+                                <div class="text-[11px] text-sys-text-muted mt-1 flex gap-2 font-medium"><span><i class="fa-regular fa-calendar"></i> ${formattedDate}</span><span><i class="fa-regular fa-clock"></i> ${exp.time}</span><span class="text-dev-main font-bold">• ${exp.category}</span></div>
+                            </td>
+                            <td class="py-4 px-4">
+                                <div class="text-xs text-sys-text-main font-bold"><i class="fa-solid fa-shop text-sys-text-muted w-4"></i> ${exp.store}</div>
+                                <div class="text-[11px] text-sys-text-muted mt-0.5"><i class="fa-solid fa-location-dot text-sys-text-muted w-4"></i> ${exp.location}</div>
+                            </td>
+                            <td class="py-4 px-5 text-right"><span class="font-extrabold text-sys-text-main text-base tracking-tight">₹${exp.price.toLocaleString('en-IN')}</span></td>
+                            <td class="py-4 px-4 no-print text-center align-middle">${receiptBtn}</td>
+                            <td class="py-4 px-3 no-print text-right whitespace-nowrap">
+                                <button onclick="editExpense(${exp.id})" class="text-sys-text-muted hover:text-dev-main transition opacity-0 group-hover:opacity-100 p-2 mr-1 glass-panel rounded-xl border-none"><i class="fa-solid fa-edit"></i></button>
+                                <button onclick="deleteExpense(${exp.id})" class="text-sys-text-muted hover:text-rose-500 transition opacity-0 group-hover:opacity-100 p-2 glass-panel rounded-xl border-none"><i class="fa-solid fa-trash-can"></i></button>
+                            </td>
+                        </tr>
+                    `;
+                });
+            }
+
+            let dashHtml = `
+            <div class="glass-panel p-5 rounded-3xl flex items-center gap-5 transition-all duration-300 hover:-translate-y-1">
+                <div class="w-14 h-14 rounded-2xl flex items-center justify-center text-sys-text-main text-2xl glass-input border-none shadow-inner"><i class="fa-solid fa-indian-rupee-sign"></i></div>
+                <div><span class="text-[10px] text-sys-text-muted font-bold block uppercase tracking-widest mb-0.5">Filtered Total</span><span class="text-2xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-dev-main to-purple-500 tracking-tight">₹${total.toLocaleString('en-IN')}</span></div>
+            </div>`;
+
+            Object.keys(userTotals).forEach(name => {
+                const userObj = database.users.find(u => u.name === name); const isFemale = userObj && userObj.gender === 'Female';
+                dashHtml += `
+                <div class="glass-panel p-5 rounded-3xl flex items-center gap-5 transition-all duration-300 hover:-translate-y-1">
+                    <div class="w-14 h-14 rounded-2xl flex items-center justify-center text-sys-text-muted text-2xl glass-input border-none shadow-inner"><i class="fa-solid ${isFemale ? 'fa-person-dress' : 'fa-person'}"></i></div>
+                    <div><span class="text-[10px] text-sys-text-muted font-bold block uppercase tracking-widest mb-0.5">${name}'s Spends</span><span class="text-xl font-extrabold text-sys-text-main tracking-tight">₹${userTotals[name].toLocaleString('en-IN')}</span></div>
+                </div>`;
+            });
+            document.getElementById('dashboardCards').innerHTML = dashHtml;
+        }
+
+        // --- IPHONE SMS PARSER ---
+        async function checkClipboardForSMS() {
+            try {
+                const clipboardText = await navigator.clipboard.readText();
+                if ((clipboardText.includes("debited") || clipboardText.includes("INR")) && clipboardText.includes("via UPI")) {
+                    const amountMatch = clipboardText.match(/(?:INR|Rs\.?)\s*([\d,]+\.\d{2})/i);
+                    const merchantMatch = clipboardText.match(/at\s+([A-Za-z0-9\s.]+)\s+on/i) || clipboardText.match(/to\s+([A-Za-z0-9\s.]+)\s+via/i);
+                    
+                    if (amountMatch) {
+                        const parsedAmount = parseFloat(amountMatch[1].replace(/,/g, ''));
+                        const parsedMerchant = merchantMatch ? merchantMatch[1].trim() : "UPI Merchant";
+                        const defaultSpender = database.users.length > 0 ? database.users[0].name : "System";
+                        
+                        if (confirm(`SMS transaction detected!\nLog this spend for ${defaultSpender}?\n\nAmount: ₹${parsedAmount}\nStore: ${parsedMerchant}`)) {
+                            database.expenses.unshift({
+                                id: Date.now(), spender: defaultSpender, item: parsedMerchant, price: parsedAmount, category: "Groceries & Daily", 
+                                store: parsedMerchant, location: "Online / UPI", date: new Date().toISOString().split('T')[0],
+                                time: `${String(new Date().getHours()).padStart(2, '0')}:${String(new Date().getMinutes()).padStart(2, '0')}`,
+                                paymentMethod: "UPI / PhonePe", notes: `Automated iPhone SMS Import: "${clipboardText}"`, receiptImage: null
+                            });
+                            saveEncryptedDatabase(); updateUI();
+                            await navigator.clipboard.writeText(""); 
+                        }
+                    }
+                }
+            } catch (err) { console.log("Clipboard observation bypassed."); }
+        }
+
+        // --- AI AGENT REQUEST ---
+        async function requestTrueAIAnalysis() {
+            if(!vaultMasterKey || database.expenses.length === 0) return document.getElementById('coachMessage').innerHTML = `<span class="text-rose-500 font-bold">Please log expenses first.</span>`;
+            const apiKey = getApiKey();
+            if(!apiKey) return document.getElementById('coachMessage').innerHTML = `<span class="text-dev-main font-bold"><i class="fa-solid fa-triangle-exclamation"></i> No API Key Found. Check Settings.</span>`;
+
+            document.getElementById('coachMessage').innerHTML = `<div class="flex items-center gap-3 font-bold"><i class="fa-solid fa-circle-notch fa-spin text-xl text-dev-main"></i> Analyzing multi-profile database...</div>`;
+            const dataString = database.expenses.map(e => `${e.date} at ${e.time} | ${e.spender} spent ₹${e.price} on ${e.item} (${e.category}) at ${e.store}.`).join('\n');
+            const profilesString = database.users.map(u => `${u.name} (Age: ${u.age}, Relation: ${u.relation})`).join(', ');
+            
+            const prompt = `You are a strict financial advisor. Analyze this spending for a household with these profiles: ${profilesString}.\n\nHere is the data:\n${dataString}\n\nTasks:\n1) Highlight trends based on Time, Location, or Store.\n2) Break down spending by profile.\n3) Give 3 strict, actionable optimization tips. Format with HTML bolding and bullet points.`;
+
+            try {
+                const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash:generateContent?key=${apiKey}`, {
+                    method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ contents: [{ parts: [{ text: prompt }] }] })
+                });
+                const data = await response.json();
+                if(!response.ok) throw new Error(`API Rejected: ${data.error?.message}`);
+                let aiText = data.candidates[0].content.parts[0].text;
+                document.getElementById('coachMessage').innerHTML = aiText.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>').replace(/\*(.*?)\n/g, '<li>$1</li>');
+            } catch (error) { document.getElementById('coachMessage').innerHTML = `<span class="text-rose-500 font-bold"><i class="fa-solid fa-circle-xmark"></i> Connection Error: ${error.message}</span>`; }
+        }
+    </script>
+</body>
+</html>
