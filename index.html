@@ -2,7 +2,11 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="theme-color" content="#0f172a">
+    
     <title>Vault AI Spending Coach</title>
     
     <script>
@@ -29,9 +33,9 @@
 
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
-        body { font-family: 'Plus Jakarta Sans', sans-serif; background: var(--sys-bg); background-attachment: fixed; background-size: cover; min-height: 100vh; }
+        body { font-family: 'Plus Jakarta Sans', sans-serif; background: var(--sys-bg); background-attachment: fixed; background-size: cover; min-height: 100vh; -webkit-tap-highlight-color: transparent; }
         
-        .custom-scrollbar::-webkit-scrollbar { width: 6px; }
+        .custom-scrollbar::-webkit-scrollbar { width: 6px; height: 6px; }
         .custom-scrollbar::-webkit-scrollbar-track { background: transparent; }
         .custom-scrollbar::-webkit-scrollbar-thumb { background: rgba(128,128,128,0.3); border-radius: 10px; }
         
@@ -116,10 +120,10 @@
         @media print { body { background: white !important; } .no-print { display: none !important; } .glass-panel { box-shadow: none; border: 1px solid #ccc; background: white; backdrop-filter: none; } }
     </style>
 </head>
-<body class="text-sys-text-main antialiased relative transition-colors duration-500">
+<body class="text-sys-text-main antialiased relative transition-colors duration-500 pb-10 sm:pb-0">
 
     <div id="securityShieldGateway" class="fixed inset-0 z-50 flex items-center justify-center p-4" style="background: var(--sys-bg); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);">
-        <div class="glass-panel rounded-3xl p-8 w-full max-w-md text-center space-y-6">
+        <div class="glass-panel rounded-3xl p-6 sm:p-8 w-full max-w-md text-center space-y-6">
             <div class="w-16 h-16 rounded-2xl flex items-center justify-center mx-auto text-2xl glass-panel text-dev-main shadow-lg">
                 <i id="lockIcon" class="fa-solid fa-lock"></i>
             </div>
@@ -137,12 +141,12 @@
 
     <div id="usersModal" class="hidden no-print fixed inset-0 bg-black/40 backdrop-blur-md z-50 flex items-center justify-center p-4">
         <div class="glass-panel rounded-3xl w-full max-w-2xl flex flex-col max-h-[90vh] overflow-hidden">
-            <div class="p-6 border-b border-white/10 flex justify-between items-center" style="background: rgba(0,0,0,0.02);">
+            <div class="p-5 sm:p-6 border-b border-white/10 flex justify-between items-center" style="background: rgba(0,0,0,0.02);">
                 <h3 class="text-lg font-extrabold text-sys-text-main"><i class="fa-solid fa-users text-dev-main"></i> Household Profiles</h3>
-                <button onclick="toggleUsersModal()" class="text-sys-text-muted hover:text-sys-text-main transition"><i class="fa-solid fa-xmark text-xl"></i></button>
+                <button onclick="toggleUsersModal()" class="text-sys-text-muted hover:text-sys-text-main transition p-2"><i class="fa-solid fa-xmark text-xl"></i></button>
             </div>
             
-            <div class="p-6 overflow-y-auto custom-scrollbar">
+            <div class="p-5 sm:p-6 overflow-y-auto custom-scrollbar">
                 <div class="mb-6">
                     <h4 class="text-xs font-bold text-sys-text-muted uppercase tracking-wider mb-3">Active Profiles</h4>
                     <div id="activeUsersList" class="grid grid-cols-1 sm:grid-cols-2 gap-3"></div>
@@ -151,13 +155,23 @@
                 <div class="glass-panel p-5 rounded-2xl">
                     <h4 class="text-sm font-bold text-sys-text-main mb-4"><i class="fa-solid fa-user-plus text-dev-main"></i> Register New Profile</h4>
                     <form id="newUserForm" class="space-y-4">
-                        <div class="grid grid-cols-2 gap-4">
-                            <div><label class="block text-xs font-bold text-sys-text-muted uppercase mb-1">Name</label><input type="text" id="newUserName" required class="w-full glass-input rounded-xl px-3 py-2 text-sm"></div>
-                            <div><label class="block text-xs font-bold text-sys-text-muted uppercase mb-1">Age</label><input type="number" id="newUserAge" required class="w-full glass-input rounded-xl px-3 py-2 text-sm"></div>
-                            <div><label class="block text-xs font-bold text-sys-text-muted uppercase mb-1">Gender</label><select id="newUserGender" required class="w-full glass-input rounded-xl px-3 py-2 text-sm"><option>Male</option><option>Female</option><option>Other</option></select></div>
-                            <div><label class="block text-xs font-bold text-sys-text-muted uppercase mb-1">Relation</label><input type="text" id="newUserRelation" required placeholder="e.g. Self, Spouse" class="w-full glass-input rounded-xl px-3 py-2 text-sm"></div>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div><label class="block text-[10px] font-bold text-sys-text-muted uppercase tracking-widest mb-1.5 ml-1">Name</label><input type="text" id="newUserName" required class="w-full glass-input rounded-xl px-3.5 py-2.5 text-sm"></div>
+                            <div><label class="block text-[10px] font-bold text-sys-text-muted uppercase tracking-widest mb-1.5 ml-1">Age</label><input type="number" id="newUserAge" required class="w-full glass-input rounded-xl px-3.5 py-2.5 text-sm"></div>
+                            <div><label class="block text-[10px] font-bold text-sys-text-muted uppercase tracking-widest mb-1.5 ml-1">Gender</label><select id="newUserGender" required class="w-full glass-input rounded-xl px-3.5 py-2.5 text-sm"><option>Male</option><option>Female</option><option>Other</option></select></div>
+                            <div>
+                                <label class="block text-[10px] font-bold text-sys-text-muted uppercase tracking-widest mb-1.5 ml-1">System Role / Relation</label>
+                                <select id="newUserRelation" required class="w-full glass-input rounded-xl px-3.5 py-2.5 text-sm font-bold">
+                                    <option value="Admin">Admin (System Owner)</option>
+                                    <option value="Self">Self</option>
+                                    <option value="Spouse">Spouse</option>
+                                    <option value="Child">Child</option>
+                                    <option value="Parent">Parent</option>
+                                    <option value="Other">Other</option>
+                                </select>
+                            </div>
                         </div>
-                        <button type="submit" class="w-full btn-premium font-bold py-3 rounded-xl mt-2">Add Profile</button>
+                        <button type="submit" class="w-full btn-premium font-bold py-3.5 rounded-xl mt-2">Add Profile</button>
                     </form>
                 </div>
             </div>
@@ -167,8 +181,8 @@
     <div id="apiModal" class="hidden no-print fixed inset-0 bg-black/40 backdrop-blur-md z-50 flex items-center justify-center p-4">
         <div class="glass-panel rounded-3xl p-6 w-full max-w-md">
             <div class="flex justify-between items-center mb-5"><h3 class="text-lg font-extrabold text-sys-text-main"><i class="fa-solid fa-key text-dev-main"></i> Connect True AI</h3><button onclick="toggleApiModal()" class="text-sys-text-muted hover:text-sys-text-main"><i class="fa-solid fa-xmark text-xl"></i></button></div>
-            <input type="password" id="apiKeyInput" placeholder="Enter Gemini API Key..." class="w-full glass-input rounded-xl px-4 py-3 text-sm mb-5">
-            <button onclick="saveApiKey()" class="w-full btn-premium font-bold py-3 rounded-xl">Save Configuration</button>
+            <input type="password" id="apiKeyInput" placeholder="Enter Gemini API Key..." class="w-full glass-input rounded-xl px-4 py-3.5 text-sm mb-5">
+            <button onclick="saveApiKey()" class="w-full btn-premium font-bold py-3.5 rounded-xl">Save Configuration</button>
         </div>
     </div>
 
@@ -180,31 +194,30 @@
         </div>
     </div>
 
-    <div class="max-w-7xl mx-auto p-4 md:p-6 space-y-6" id="printable-area">
+    <div class="max-w-7xl mx-auto p-3 sm:p-6 space-y-5 sm:space-y-6" id="printable-area">
         
-        <header class="glass-panel p-6 rounded-3xl flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+        <header class="glass-panel p-5 sm:p-6 rounded-3xl flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
             <div>
-                <h1 class="text-2xl font-extrabold text-sys-text-main tracking-tight flex items-center gap-3"><span class="w-10 h-10 rounded-xl flex items-center justify-center text-dev-main" style="background: rgba(128,128,128,0.1);"><i class="fa-solid fa-shield-halved"></i></span> Vault Spending Coach</h1>
-                <p class="text-sys-text-muted text-sm mt-1 ml-13 font-medium">AES-256 Crypto Ledger • Dynamic Profiles</p>
+                <h1 class="text-xl sm:text-2xl font-extrabold text-sys-text-main tracking-tight flex items-center gap-3"><span class="w-10 h-10 rounded-xl flex items-center justify-center text-dev-main" style="background: rgba(128,128,128,0.1);"><i class="fa-solid fa-shield-halved"></i></span> Vault Spending Coach</h1>
+                <p class="text-sys-text-muted text-xs sm:text-sm mt-1 ml-13 font-medium">AES-256 Crypto Ledger • Dynamic Profiles</p>
             </div>
-            <div class="flex flex-wrap items-center gap-3 no-print">
-                <div class="flex items-center gap-2 glass-input px-3 py-2 rounded-xl">
+            <div class="flex flex-wrap items-center gap-2 sm:gap-3 w-full md:w-auto no-print">
+                <div class="flex items-center gap-2 glass-input px-3 py-2 rounded-xl flex-1 md:flex-none">
                     <i class="fa-solid fa-palette text-sys-text-muted"></i>
-                    <select id="themeSelector" onchange="changeTheme()" class="bg-transparent text-xs text-sys-text-main font-bold focus:outline-none cursor-pointer appearance-none">
+                    <select id="themeSelector" onchange="changeTheme()" class="bg-transparent text-xs text-sys-text-main font-bold focus:outline-none cursor-pointer appearance-none w-full">
                         <option value="default">Glass Clean</option><option value="cyber">Cyber Mesh</option><option value="luxury">Obsidian Luxe</option><option value="vedic">Rose Aura</option>
                     </select>
                 </div>
-                <button onclick="toggleUsersModal()" class="text-xs glass-panel hover:bg-white/10 text-sys-text-main font-bold px-4 py-2.5 rounded-xl transition flex items-center gap-2"><i class="fa-solid fa-users"></i> Profiles</button>
-                <button onclick="lockVault()" class="text-xs bg-rose-500/10 border border-rose-500/20 hover:bg-rose-500/20 text-rose-500 font-bold px-4 py-2.5 rounded-xl transition flex items-center gap-1.5"><i class="fa-solid fa-lock"></i> Lock Vault</button>
-                <button onclick="window.print()" class="text-xs glass-panel hover:bg-white/10 text-sys-text-main font-bold px-4 py-2.5 rounded-xl transition flex items-center gap-2"><i class="fa-solid fa-print"></i> Print</button>
-                <button onclick="toggleApiModal()" class="text-xs glass-panel hover:bg-white/10 text-sys-text-main font-bold px-4 py-2.5 rounded-xl transition flex items-center gap-2"><i class="fa-solid fa-gear"></i> AI Config</button>
+                <button onclick="toggleUsersModal()" class="text-xs glass-panel hover:bg-white/10 text-sys-text-main font-bold px-3 sm:px-4 py-2.5 rounded-xl transition flex items-center justify-center gap-2 flex-1 md:flex-none"><i class="fa-solid fa-users"></i> Profiles</button>
+                <button onclick="lockVault()" class="text-xs bg-rose-500/10 border border-rose-500/20 hover:bg-rose-500/20 text-rose-500 font-bold px-3 sm:px-4 py-2.5 rounded-xl transition flex items-center justify-center gap-1.5 flex-1 md:flex-none"><i class="fa-solid fa-lock"></i> Lock</button>
+                <button onclick="toggleApiModal()" class="text-xs glass-panel hover:bg-white/10 text-sys-text-main font-bold px-3 sm:px-4 py-2.5 rounded-xl transition flex items-center justify-center gap-2 flex-1 md:flex-none"><i class="fa-solid fa-gear"></i> AI Config</button>
             </div>
         </header>
 
         <div id="dashboardCards" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
             </div>
 
-        <section class="no-print glass-panel p-6 rounded-3xl relative overflow-hidden flex flex-col md:flex-row gap-6 items-start" style="border-left: 4px solid var(--dev-main);">
+        <section class="no-print glass-panel p-5 sm:p-6 rounded-3xl relative overflow-hidden flex flex-col md:flex-row gap-5 items-start" style="border-left: 4px solid var(--dev-main);">
             <div class="absolute top-0 right-0 p-6 text-dev-main opacity-5 pointer-events-none"><i class="fa-solid fa-network-wired text-9xl"></i></div>
             <div class="relative z-10 flex-1 space-y-3 w-full">
                 <div class="flex items-center gap-2"><span id="aiStatus" class="text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-widest glass-input text-dev-main flex items-center gap-1.5"><span class="w-1.5 h-1.5 rounded-full bg-amber-500 shadow-[0_0_8px_rgba(245,158,11,0.8)]"></span> Standby Mode</span></div>
@@ -212,36 +225,57 @@
                 <div id="coachMessage" class="text-sm text-sys-text-muted leading-relaxed ai-response min-h-[60px]">Waiting for database unlock...</div>
             </div>
             <div class="relative z-10 w-full md:w-auto">
-                <button onclick="requestTrueAIAnalysis()" class="btn-premium font-bold py-3 px-6 rounded-2xl w-full flex items-center justify-center gap-2 whitespace-nowrap"><i class="fa-solid fa-bolt"></i> Generate Insight</button>
+                <button onclick="requestTrueAIAnalysis()" class="btn-premium font-bold py-3.5 px-6 rounded-2xl w-full flex items-center justify-center gap-2 whitespace-nowrap"><i class="fa-solid fa-bolt"></i> Generate Insight</button>
             </div>
         </section>
 
-        <div class="grid grid-cols-1 xl:grid-cols-12 gap-6">
+        <div class="grid grid-cols-1 xl:grid-cols-12 gap-5 sm:gap-6">
             
-            <form id="expenseForm" class="xl:col-span-4 glass-panel p-6 rounded-3xl space-y-5 no-print">
+            <form id="expenseForm" class="xl:col-span-4 glass-panel p-5 sm:p-6 rounded-3xl space-y-5 no-print">
                 <h2 id="formTitle" class="text-lg font-extrabold text-sys-text-main mb-2 pb-3 border-b border-white/10"><i class="fa-solid fa-plus-circle text-dev-main"></i> New Transaction</h2>
                 <input type="hidden" id="editingId" value="">
 
                 <div id="dynamicSpendersContainer" class="grid grid-cols-2 gap-2"></div>
                 <p id="noUsersWarning" class="hidden text-xs text-rose-500 font-bold bg-rose-500/10 border border-rose-500/20 p-3 rounded-xl backdrop-blur-md"><i class="fa-solid fa-triangle-exclamation"></i> Please add a Profile first using the "Profiles" button.</p>
 
-                <div class="grid grid-cols-2 gap-4">
-                    <div class="col-span-2"><label class="block text-[10px] font-bold text-sys-text-muted uppercase tracking-widest mb-1.5 ml-1">Item / Service</label><input type="text" id="item" required placeholder="Label Description" class="w-full glass-input rounded-xl px-3.5 py-2.5 text-sm"></div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div class="sm:col-span-2"><label class="block text-[10px] font-bold text-sys-text-muted uppercase tracking-widest mb-1.5 ml-1">Item / Service</label><input type="text" id="item" required placeholder="Label Description" class="w-full glass-input rounded-xl px-3.5 py-2.5 text-sm"></div>
                     <div><label class="block text-[10px] font-bold text-sys-text-muted uppercase tracking-widest mb-1.5 ml-1">Amount (₹)</label><input type="number" id="price" required min="1" placeholder="0" class="w-full glass-input rounded-xl px-3.5 py-2.5 text-sm font-bold"></div>
-                    <div><label class="block text-[10px] font-bold text-sys-text-muted uppercase tracking-widest mb-1.5 ml-1">Category</label><select id="category" class="w-full glass-input rounded-xl px-3.5 py-2.5 text-sm"><option>Food & Dining</option><option>Shopping & Luxury</option><option>Groceries & Daily</option><option>Investments</option><option>Utilities & Bills</option><option>Travel & Fuel</option><option>Entertainment</option></select></div>
+                    <div>
+                        <label class="block text-[10px] font-bold text-sys-text-muted uppercase tracking-widest mb-1.5 ml-1">Category</label>
+                        <select id="category" class="w-full glass-input rounded-xl px-3.5 py-2.5 text-sm">
+                            <option>Food & Dining</option>
+                            <option>Groceries & Daily Needs</option>
+                            <option>Rent & Housing</option>
+                            <option>Utilities & Bills</option>
+                            <option>Loans & EMI</option>
+                            <option>Education & Fees</option>
+                            <option>Medical & Hospital</option>
+                            <option>Car Maintenance & Repair</option>
+                            <option>Bike/Two-Wheeler Maintenance</option>
+                            <option>Travel & Fuel</option>
+                            <option>Trip & Vacation</option>
+                            <option>Shopping & Luxury</option>
+                            <option>Event: Birthday</option>
+                            <option>Event: Anniversary</option>
+                            <option>Lent Money / Debt</option>
+                            <option>Investments</option>
+                            <option>Entertainment</option>
+                        </select>
+                    </div>
                 </div>
 
-                <div class="grid grid-cols-2 gap-4">
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div><label class="block text-[10px] font-bold text-sys-text-muted uppercase tracking-widest mb-1.5 ml-1">Store/Brand</label><input type="text" id="store" placeholder="Provider" class="w-full glass-input rounded-xl px-3.5 py-2.5 text-sm"></div>
                     <div><label class="block text-[10px] font-bold text-sys-text-muted uppercase tracking-widest mb-1.5 ml-1">Location</label><input type="text" id="location" placeholder="Site" class="w-full glass-input rounded-xl px-3.5 py-2.5 text-sm"></div>
                     <div><label class="block text-[10px] font-bold text-sys-text-muted uppercase tracking-widest mb-1.5 ml-1">Date</label><input type="date" id="date" required class="w-full glass-input rounded-xl px-3.5 py-2.5 text-sm"></div>
                     <div><label class="block text-[10px] font-bold text-sys-text-muted uppercase tracking-widest mb-1.5 ml-1">Time</label><input type="time" id="time" required class="w-full glass-input rounded-xl px-3.5 py-2.5 text-sm"></div>
                 </div>
 
-                <div class="grid grid-cols-2 gap-4">
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div><label class="block text-[10px] font-bold text-sys-text-muted uppercase tracking-widest mb-1.5 ml-1">Payment</label><select id="paymentMethod" class="w-full glass-input rounded-xl px-3.5 py-2.5 text-sm"><option>UPI / PhonePe</option><option>Credit Card</option><option>Debit Card</option><option>Cash</option><option>Bank Transfer</option></select></div>
                     <div><label class="block text-[10px] font-bold text-sys-text-muted uppercase tracking-widest mb-1.5 ml-1">Bill (Doc)</label><input type="file" id="receipt" accept="image/*, application/pdf" class="w-full text-xs text-sys-text-muted file:mr-2 file:py-1.5 file:px-3 file:rounded-lg file:border-0 file:text-[10px] file:font-bold file:bg-white/20 file:text-sys-text-main hover:file:bg-white/30 transition cursor-pointer glass-input rounded-xl p-1"></div>
-                    <div class="col-span-2"><textarea id="notes" placeholder="Metadata parameters..." class="w-full glass-input rounded-xl px-3.5 py-2.5 text-sm h-16 custom-scrollbar"></textarea></div>
+                    <div class="sm:col-span-2"><textarea id="notes" placeholder="Metadata parameters..." class="w-full glass-input rounded-xl px-3.5 py-2.5 text-sm h-16 custom-scrollbar"></textarea></div>
                 </div>
 
                 <div class="flex gap-3 pt-2">
@@ -250,36 +284,36 @@
                 </div>
             </form>
 
-            <div class="xl:col-span-8 space-y-6">
+            <div class="xl:col-span-8 space-y-5 sm:space-y-6 w-full">
                 
                 <div class="glass-panel p-5 rounded-3xl no-print">
-                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
                         <div><input type="text" id="searchKeyword" oninput="updateUI()" placeholder="Live Regex Search..." class="w-full glass-input rounded-xl px-4 py-2.5 text-sm"></div>
                         <div>
                             <select id="searchMonth" onchange="updateUI()" class="w-full glass-input rounded-xl px-4 py-2.5 text-sm">
-                                <option value="">All Chronological Months</option><option value="01">January</option><option value="02">February</option><option value="03">March</option><option value="04">April</option><option value="05">May</option><option value="06">June</option><option value="07">July</option><option value="08">August</option><option value="09">September</option><option value="10">October</option><option value="11">November</option><option value="12">December</option>
+                                <option value="">All Months</option><option value="01">January</option><option value="02">February</option><option value="03">March</option><option value="04">April</option><option value="05">May</option><option value="06">June</option><option value="07">July</option><option value="08">August</option><option value="09">September</option><option value="10">October</option><option value="11">November</option><option value="12">December</option>
                             </select>
                         </div>
                         <div><input type="date" id="searchDate" onchange="updateUI()" class="w-full glass-input rounded-xl px-4 py-2.5 text-sm"></div>
                     </div>
                 </div>
 
-                <div class="glass-panel p-6 rounded-3xl flex flex-col h-[550px] ledger-container">
+                <div class="glass-panel p-4 sm:p-6 rounded-3xl flex flex-col h-[600px] ledger-container w-full">
                     <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-5 gap-4">
                         <h2 class="text-lg font-extrabold text-sys-text-main flex items-center gap-2"><i class="fa-solid fa-database text-sys-text-muted"></i> Master Database</h2>
                         <div class="flex flex-wrap gap-2 no-print">
                             <input type="file" id="importDatabaseFile" class="hidden" accept=".json" onchange="importDatabase(event)">
-                            <button onclick="document.getElementById('importDatabaseFile').click()" class="text-xs glass-panel hover:bg-white/20 text-sys-text-main font-bold px-3 py-1.5 rounded-lg transition flex items-center gap-1.5"><i class="fa-solid fa-file-import text-dev-main"></i> Restore</button>
-                            <button onclick="exportDatabase()" class="text-xs glass-panel hover:bg-white/20 text-sys-text-main font-bold px-3 py-1.5 rounded-lg transition flex items-center gap-1.5"><i class="fa-solid fa-file-export text-dev-main"></i> Backup</button>
-                            <button onclick="clearAllData()" class="text-xs bg-rose-500/10 border border-rose-500/20 text-rose-500 font-bold px-3 py-1.5 rounded-lg transition flex items-center gap-1.5"><i class="fa-solid fa-trash-can"></i> Clear</button>
+                            <button onclick="document.getElementById('importDatabaseFile').click()" class="text-xs glass-panel hover:bg-white/20 text-sys-text-main font-bold px-3 py-2 rounded-lg transition flex items-center gap-1.5"><i class="fa-solid fa-file-import text-dev-main"></i> Restore</button>
+                            <button onclick="exportDatabase()" class="text-xs glass-panel hover:bg-white/20 text-sys-text-main font-bold px-3 py-2 rounded-lg transition flex items-center gap-1.5"><i class="fa-solid fa-file-export text-dev-main"></i> Backup</button>
+                            <button onclick="clearAllData()" class="text-xs bg-rose-500/10 border border-rose-500/20 text-rose-500 font-bold px-3 py-2 rounded-lg transition flex items-center gap-1.5"><i class="fa-solid fa-trash-can"></i> Clear</button>
                         </div>
                     </div>
 
-                    <div class="overflow-y-auto flex-1 custom-scrollbar glass-input rounded-2xl border-none">
-                        <table class="w-full text-left border-collapse">
+                    <div class="overflow-x-auto overflow-y-auto flex-1 custom-scrollbar glass-input rounded-2xl border-none w-full">
+                        <table class="w-full text-left border-collapse min-w-[600px]">
                             <thead>
-                                <tr class="text-[10px] font-bold uppercase tracking-widest text-sys-text-muted sticky top-0 z-10" style="background: rgba(128,128,128,0.1); backdrop-filter: blur(8px);">
-                                    <th class="py-4 px-5">Profile</th><th class="py-4 px-4">Details</th><th class="py-4 px-4">Context</th><th class="py-4 px-5 text-right">Amount</th><th class="py-4 px-4 no-print text-center"><i class="fa-solid fa-receipt"></i></th><th class="py-4 px-3 no-print"></th>
+                                <tr class="text-[10px] font-bold uppercase tracking-widest text-sys-text-muted sticky top-0 z-10" style="background: rgba(128,128,128,0.15); backdrop-filter: blur(12px);">
+                                    <th class="py-4 px-5 whitespace-nowrap">Profile</th><th class="py-4 px-4">Details</th><th class="py-4 px-4">Context</th><th class="py-4 px-5 text-right">Amount</th><th class="py-4 px-4 no-print text-center"><i class="fa-solid fa-receipt"></i></th><th class="py-4 px-3 no-print"></th>
                                 </tr>
                             </thead>
                             <tbody id="ledgerBody" class="divide-y divide-white/10 text-sm"></tbody>
@@ -291,7 +325,6 @@
     </div>
 
     <script>
-        // ARCHITECTURE UPGRADE: Unified Master Object
         let vaultMasterKey = ""; 
         let database = { expenses: [], users: [] };
 
@@ -363,7 +396,16 @@
 
         function unlockUiGateway() {
             document.getElementById('securityShieldGateway').classList.add('hidden');
-            document.getElementById('coachMessage').innerText = "Vault authenticated. Running system baseline diagnostics...";
+            
+            // ADMIN WELCOME LOGIC
+            const adminUser = database.users.find(u => u.relation.toLowerCase() === 'admin');
+            const coachDiv = document.getElementById('coachMessage');
+            if (adminUser) {
+                coachDiv.innerHTML = `<span class="text-dev-main font-extrabold"><i class="fa-solid fa-crown"></i> Welcome back, System Admin ${adminUser.name}.</span> Vault fully decrypted and diagnostic telemetry is green. Ready for operations.`;
+            } else {
+                coachDiv.innerText = "Vault authenticated. Running system baseline diagnostics...";
+            }
+            
             document.getElementById('themeSelector').value = (localStorage.getItem('coach_theme') || 'default');
         }
 
@@ -392,17 +434,22 @@
         function renderUserManagementList() {
             const list = document.getElementById('activeUsersList');
             if(database.users.length === 0) {
-                list.innerHTML = `<p class="col-span-2 text-sm text-sys-text-muted">No profiles active. Add one below.</p>`; return;
+                list.innerHTML = `<p class="col-span-1 sm:col-span-2 text-sm text-sys-text-muted">No profiles active. Add one below.</p>`; return;
             }
-            list.innerHTML = database.users.map(u => `
+            list.innerHTML = database.users.map(u => {
+                const isAdmin = u.relation.toLowerCase() === 'admin';
+                return `
                 <div class="glass-input rounded-xl p-3 flex justify-between items-center border-none" style="background: rgba(128,128,128,0.1);">
                     <div>
-                        <div class="font-extrabold text-sys-text-main text-sm">${u.name} <span class="text-[9px] uppercase tracking-wider glass-panel px-2 py-0.5 rounded-full ml-1 text-sys-text-muted border-none">${u.relation}</span></div>
+                        <div class="font-extrabold text-sys-text-main text-sm flex items-center gap-1.5">
+                            ${u.name} 
+                            <span class="text-[9px] uppercase tracking-wider ${isAdmin ? 'bg-dev-main text-dev-btn-text' : 'glass-panel text-sys-text-muted'} px-2 py-0.5 rounded-full border-none shadow-sm">${isAdmin ? '<i class="fa-solid fa-crown mr-0.5"></i> ' : ''}${u.relation}</span>
+                        </div>
                         <div class="text-[11px] text-sys-text-muted mt-1">${u.age} yrs • ${u.gender}</div>
                     </div>
-                    <button onclick="deleteUser(${u.id})" class="text-rose-500 hover:bg-rose-500/20 p-2 rounded-lg transition"><i class="fa-solid fa-trash"></i></button>
+                    <button onclick="deleteUser(${u.id})" class="text-rose-500 hover:bg-rose-500/20 p-2.5 rounded-lg transition"><i class="fa-solid fa-trash"></i></button>
                 </div>
-            `).join('');
+            `}).join('');
         }
 
         document.getElementById('newUserForm').addEventListener('submit', (e) => {
@@ -412,6 +459,7 @@
             
             database.users.push({ id: Date.now(), name: name, age: document.getElementById('newUserAge').value, gender: document.getElementById('newUserGender').value, relation: document.getElementById('newUserRelation').value });
             saveEncryptedDatabase(); e.target.reset(); renderUserManagementList(); updateUI(); 
+            unlockUiGateway(); // Re-trigger greeting if Admin was just created
         });
 
         function deleteUser(id) {
@@ -440,7 +488,7 @@
                         if(Array.isArray(parsedData)) database.expenses = [...database.expenses, ...parsedData];
                         else { database.expenses = [...database.expenses, ...(parsedData.expenses || [])]; database.users = [...database.users, ...(parsedData.users || [])]; }
                     }
-                    saveEncryptedDatabase(); updateUI();
+                    saveEncryptedDatabase(); updateUI(); unlockUiGateway();
                 } catch (err) { alert("Data structural error."); }
             }; reader.readAsText(file); event.target.value = ''; 
         }
@@ -574,24 +622,24 @@
 
                     const formattedDate = new Date(exp.date).toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' });
                     let iconType = "fa-image"; if (exp.receiptImage && exp.receiptImage.startsWith('data:application/pdf')) iconType = "fa-file-pdf";
-                    const receiptBtn = exp.receiptImage ? `<button onclick="viewReceipt('${exp.receiptImage}')" class="text-dev-main hover:bg-white/10 p-2 rounded-xl transition border border-white/10"><i class="fa-solid ${iconType}"></i></button>` : `<span class="text-sys-border">-</span>`;
+                    const receiptBtn = exp.receiptImage ? `<button onclick="viewReceipt('${exp.receiptImage}')" class="text-dev-main hover:bg-white/10 p-2.5 rounded-xl transition border border-white/10"><i class="fa-solid ${iconType}"></i></button>` : `<span class="text-sys-border">-</span>`;
 
                     tbody.innerHTML += `
                         <tr class="hover:bg-black/5 dark:hover:bg-white/5 transition-colors group">
-                            <td class="py-4 px-5"><span class="px-3 py-1 rounded-full text-xs font-extrabold glass-panel shadow-sm">${exp.spender}</span></td>
-                            <td class="py-4 px-4">
+                            <td class="py-4 px-5 whitespace-nowrap"><span class="px-3 py-1.5 rounded-full text-xs font-extrabold glass-panel shadow-sm">${exp.spender}</span></td>
+                            <td class="py-4 px-4 min-w-[150px]">
                                 <div class="font-extrabold text-sys-text-main">${exp.item}</div>
-                                <div class="text-[11px] text-sys-text-muted mt-1 flex gap-2 font-medium"><span><i class="fa-regular fa-calendar"></i> ${formattedDate}</span><span><i class="fa-regular fa-clock"></i> ${exp.time}</span><span class="text-dev-main font-bold">• ${exp.category}</span></div>
+                                <div class="text-[11px] text-sys-text-muted mt-1 flex gap-2 font-medium"><span><i class="fa-regular fa-calendar"></i> ${formattedDate}</span><span><i class="fa-regular fa-clock"></i> ${exp.time}</span><span class="text-dev-main font-bold whitespace-nowrap">• ${exp.category}</span></div>
                             </td>
-                            <td class="py-4 px-4">
+                            <td class="py-4 px-4 min-w-[120px]">
                                 <div class="text-xs text-sys-text-main font-bold"><i class="fa-solid fa-shop text-sys-text-muted w-4"></i> ${exp.store}</div>
                                 <div class="text-[11px] text-sys-text-muted mt-0.5"><i class="fa-solid fa-location-dot text-sys-text-muted w-4"></i> ${exp.location}</div>
                             </td>
                             <td class="py-4 px-5 text-right"><span class="font-extrabold text-sys-text-main text-base tracking-tight">₹${exp.price.toLocaleString('en-IN')}</span></td>
                             <td class="py-4 px-4 no-print text-center align-middle">${receiptBtn}</td>
                             <td class="py-4 px-3 no-print text-right whitespace-nowrap">
-                                <button onclick="editExpense(${exp.id})" class="text-sys-text-muted hover:text-dev-main transition opacity-0 group-hover:opacity-100 p-2 mr-1 glass-panel rounded-xl border-none"><i class="fa-solid fa-edit"></i></button>
-                                <button onclick="deleteExpense(${exp.id})" class="text-sys-text-muted hover:text-rose-500 transition opacity-0 group-hover:opacity-100 p-2 glass-panel rounded-xl border-none"><i class="fa-solid fa-trash-can"></i></button>
+                                <button onclick="editExpense(${exp.id})" class="text-sys-text-muted hover:text-dev-main transition p-2 mr-1 glass-panel rounded-xl border-none"><i class="fa-solid fa-edit"></i></button>
+                                <button onclick="deleteExpense(${exp.id})" class="text-sys-text-muted hover:text-rose-500 transition p-2 glass-panel rounded-xl border-none"><i class="fa-solid fa-trash-can"></i></button>
                             </td>
                         </tr>
                     `;
@@ -599,17 +647,17 @@
             }
 
             let dashHtml = `
-            <div class="glass-panel p-5 rounded-3xl flex items-center gap-5 transition-all duration-300 hover:-translate-y-1">
-                <div class="w-14 h-14 rounded-2xl flex items-center justify-center text-sys-text-main text-2xl glass-input border-none shadow-inner"><i class="fa-solid fa-indian-rupee-sign"></i></div>
-                <div><span class="text-[10px] text-sys-text-muted font-bold block uppercase tracking-widest mb-0.5">Filtered Total</span><span class="text-2xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-dev-main to-purple-500 tracking-tight">₹${total.toLocaleString('en-IN')}</span></div>
+            <div class="glass-panel p-5 rounded-3xl flex items-center gap-4 sm:gap-5 transition-all duration-300 hover:-translate-y-1">
+                <div class="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl flex items-center justify-center text-sys-text-main text-xl sm:text-2xl glass-input border-none shadow-inner flex-shrink-0"><i class="fa-solid fa-indian-rupee-sign"></i></div>
+                <div class="min-w-0"><span class="text-[9px] sm:text-[10px] text-sys-text-muted font-bold block uppercase tracking-widest mb-0.5 truncate">Filtered Total</span><span class="text-xl sm:text-2xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-dev-main to-purple-500 tracking-tight truncate">₹${total.toLocaleString('en-IN')}</span></div>
             </div>`;
 
             Object.keys(userTotals).forEach(name => {
                 const userObj = database.users.find(u => u.name === name); const isFemale = userObj && userObj.gender === 'Female';
                 dashHtml += `
-                <div class="glass-panel p-5 rounded-3xl flex items-center gap-5 transition-all duration-300 hover:-translate-y-1">
-                    <div class="w-14 h-14 rounded-2xl flex items-center justify-center text-sys-text-muted text-2xl glass-input border-none shadow-inner"><i class="fa-solid ${isFemale ? 'fa-person-dress' : 'fa-person'}"></i></div>
-                    <div><span class="text-[10px] text-sys-text-muted font-bold block uppercase tracking-widest mb-0.5">${name}'s Spends</span><span class="text-xl font-extrabold text-sys-text-main tracking-tight">₹${userTotals[name].toLocaleString('en-IN')}</span></div>
+                <div class="glass-panel p-5 rounded-3xl flex items-center gap-4 sm:gap-5 transition-all duration-300 hover:-translate-y-1">
+                    <div class="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl flex items-center justify-center text-sys-text-muted text-xl sm:text-2xl glass-input border-none shadow-inner flex-shrink-0"><i class="fa-solid ${isFemale ? 'fa-person-dress' : 'fa-person'}"></i></div>
+                    <div class="min-w-0"><span class="text-[9px] sm:text-[10px] text-sys-text-muted font-bold block uppercase tracking-widest mb-0.5 truncate">${name}'s Spends</span><span class="text-lg sm:text-xl font-extrabold text-sys-text-main tracking-tight truncate">₹${userTotals[name].toLocaleString('en-IN')}</span></div>
                 </div>`;
             });
             document.getElementById('dashboardCards').innerHTML = dashHtml;
@@ -630,7 +678,7 @@
                         
                         if (confirm(`SMS transaction detected!\nLog this spend for ${defaultSpender}?\n\nAmount: ₹${parsedAmount}\nStore: ${parsedMerchant}`)) {
                             database.expenses.unshift({
-                                id: Date.now(), spender: defaultSpender, item: parsedMerchant, price: parsedAmount, category: "Groceries & Daily", 
+                                id: Date.now(), spender: defaultSpender, item: parsedMerchant, price: parsedAmount, category: "Groceries & Daily Needs", 
                                 store: parsedMerchant, location: "Online / UPI", date: new Date().toISOString().split('T')[0],
                                 time: `${String(new Date().getHours()).padStart(2, '0')}:${String(new Date().getMinutes()).padStart(2, '0')}`,
                                 paymentMethod: "UPI / PhonePe", notes: `Automated iPhone SMS Import: "${clipboardText}"`, receiptImage: null
