@@ -44,7 +44,8 @@
 
         .glass-panel { background: var(--sys-surface-glass); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border: 1px solid var(--sys-border-glass); box-shadow: var(--glass-shadow); }
         
-        .glass-input { background: var(--sys-input-glass); border: 1px solid var(--sys-border-glass); color: var(--sys-text-main); transition: all 0.3s ease; font-size: 16px; }
+        /* Mobile Scale Optimization */
+        .glass-input { background: var(--sys-input-glass); border: 1px solid var(--sys-border-glass); color: var(--sys-text-main); transition: all 0.3s ease; font-size: 16px; /* Prevents iOS auto-zoom */ }
         .glass-input:focus { outline: none; border-color: var(--dev-main); box-shadow: 0 0 0 2px rgba(128,128,128,0.1); }
         
         .btn-premium { background: linear-gradient(135deg, var(--dev-main), var(--dev-hover)); color: var(--dev-btn-text); box-shadow: 0 4px 15px rgba(0,0,0,0.1); transition: all 0.3s ease; }
@@ -79,7 +80,7 @@
                 <input type="password" id="masterPasswordField" placeholder="Passphrase..." class="w-full glass-input rounded-2xl px-4 py-3.5 text-center tracking-widest font-bold">
                 <div id="hintSetupContainer" class="hidden">
                     <p class="text-[10px] text-rose-500 font-bold mb-1 text-left"><i class="fa-solid fa-triangle-exclamation"></i> IF YOU FORGET THIS, DATA IS LOST FOREVER. Set a hint:</p>
-                    <input type="text" id="passwordHintField" placeholder="Optional: Pet name + birth year..." class="w-full glass-input rounded-xl px-4 py-2.5 text-xs">
+                    <input type="text" id="passwordHintField" placeholder="Optional: Mother's maiden name + birth year..." class="w-full glass-input rounded-xl px-4 py-2.5 text-xs">
                 </div>
                 <button onclick="triggerDecryptionPipeline()" id="gatewayAuthBtn" class="w-full btn-premium font-bold py-3.5 rounded-2xl flex items-center justify-center gap-2"><i class="fa-solid fa-unlock"></i> Unlock Database</button>
                 <button id="showHintBtn" onclick="showPasswordHint()" class="text-xs text-sys-text-muted hover:text-sys-text-main font-bold underline decoration-dotted hidden w-full">Forgot Password? View Hint</button>
@@ -109,7 +110,7 @@
                             <div><label class="block text-[10px] font-bold text-sys-text-muted uppercase tracking-widest mb-1.5 ml-1">Age</label><input type="number" id="newUserAge" required class="w-full glass-input rounded-xl px-3.5 py-2.5"></div>
                             <div><label class="block text-[10px] font-bold text-sys-text-muted uppercase tracking-widest mb-1.5 ml-1">Gender</label><select id="newUserGender" required class="w-full glass-input rounded-xl px-3.5 py-2.5"><option>Male</option><option>Female</option><option>Other</option></select></div>
                             <div>
-                                <label class="block text-[10px] font-bold text-sys-text-muted uppercase tracking-widest mb-1.5 ml-1">System Role</label>
+                                <label class="block text-[10px] font-bold text-sys-text-muted uppercase tracking-widest mb-1.5 ml-1">System Role / Relation</label>
                                 <select id="newUserRelation" required class="w-full glass-input rounded-xl px-3.5 py-2.5 font-bold">
                                     <option value="Admin">Admin (System Owner)</option>
                                     <option value="Self">Self</option>
@@ -323,6 +324,7 @@
             const passwordInput = document.getElementById('masterPasswordField').value;
             if (!passwordInput) return alert("System halt: Passphrase required.");
 
+            // Show Loader UI first, then execute heavy crypto block
             document.getElementById('decryptLoader').classList.remove('hidden');
             document.getElementById('decryptLoader').style.display = 'flex';
             
@@ -333,6 +335,7 @@
             const rawCiphertext = localStorage.getItem('dev_paddy_crypto_vault');
 
             if (!rawCiphertext) {
+                // NEW VAULT CREATION
                 vaultMasterKey = passwordInput;
                 database = { expenses: [], users: [] };
                 saveEncryptedDatabase();
@@ -343,6 +346,7 @@
                 unlockUiGateway();
                 checkClipboardForSMS();
             } else {
+                // EXISTING VAULT DECRYPTION
                 try {
                     const bytes = CryptoJS.AES.decrypt(rawCiphertext, passwordInput);
                     const plaintextDataString = bytes.toString(CryptoJS.enc.Utf8);
@@ -350,6 +354,7 @@
 
                     const parsedData = JSON.parse(plaintextDataString);
                     
+                    // Legacy Format Upgrader
                     if (Array.isArray(parsedData)) {
                         database = { expenses: parsedData, users: [] };
                         const existingSpenders = [...new Set(parsedData.map(e => e.spender))];
@@ -579,6 +584,7 @@
             const kw = document.getElementById('searchKeyword').value.toLowerCase(); const fMonth = document.getElementById('searchMonth').value; const fDate = document.getElementById('searchDate').value;
             let total = 0; let userTotals = {}; database.users.forEach(u => userTotals[u.name] = 0);
 
+            // Filter logic
             let filtered = database.expenses.filter(exp => {
                 let match = true;
                 if(kw) match = exp.item.toLowerCase().includes(kw) || exp.store.toLowerCase().includes(kw) || exp.notes.toLowerCase().includes(kw) || exp.category.toLowerCase().includes(kw);
@@ -587,6 +593,7 @@
                 return match;
             });
 
+            // Fast DOM Assembly via HTML Array Joining (Prevents Mobile Thrashing)
             const tbody = document.getElementById('ledgerBody');
             if (filtered.length === 0) {
                 tbody.innerHTML = `<tr><td colspan="5" class="text-center py-16 text-sys-text-muted font-bold">No vault records found matching active filters.</td></tr>`;
@@ -619,6 +626,7 @@
                 tbody.innerHTML = htmlBuffer.join('');
             }
 
+            // Dashboard Assembly
             let dashHtml = [];
             dashHtml.push(`
             <div class="glass-panel p-5 rounded-3xl flex items-center gap-4 sm:gap-5 transition-all duration-300 hover:-translate-y-1 shadow-md">
