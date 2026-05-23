@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <meta name="theme-color" content="#0f172a">
+    <meta name="theme-color" content="#0ea5e9">
     
     <title>Vault AI Spending Coach</title>
     
@@ -36,15 +36,39 @@
         .ai-response ul { list-style-type: none; margin-top: 0.75rem; margin-bottom: 0.75rem; padding-left: 0.5rem; border-left: 2px solid var(--dev-main); }
         .ai-response li { margin-bottom: 0.5rem; padding-left: 0.75rem; font-size: 0.875rem; }
 
-        /* VISION OS / PREMIUM GLASSMORPHISM THEMES */
-        :root, html[data-theme="default"] { color-scheme: light; --sys-bg: radial-gradient(circle at top left, #f8fafc 0%, #e2e8f0 100%); --sys-surface-glass: rgba(255, 255, 255, 0.7); --sys-input-glass: rgba(255, 255, 255, 0.5); --sys-border-glass: rgba(255, 255, 255, 0.9); --sys-text-main: #0f172a; --sys-text-muted: #475569; --dev-main: #000000; --dev-hover: #333333; --dev-btn-text: #ffffff; --glass-shadow: 0 10px 40px -10px rgba(0,0,0,0.1); }
-        html[data-theme="cyber"] { color-scheme: dark; --sys-bg: radial-gradient(circle at top right, #09090b, #18181b, #27272a); --sys-surface-glass: rgba(24, 24, 27, 0.6); --sys-input-glass: rgba(0, 0, 0, 0.4); --sys-border-glass: rgba(57, 255, 20, 0.2); --sys-text-main: #39ff14; --sys-text-muted: #22c55e; --dev-main: #00ffff; --dev-hover: #0891b2; --dev-btn-text: #000000; --glass-shadow: 0 10px 40px -10px rgba(0,0,0,0.5); }
+        /* USER-FRIENDLY OS THEMES */
+        :root, html[data-theme="default"] { 
+            color-scheme: light; 
+            --sys-bg: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%); 
+            --sys-surface-glass: rgba(255, 255, 255, 0.8); 
+            --sys-input-glass: rgba(255, 255, 255, 0.6); 
+            --sys-border-glass: rgba(255, 255, 255, 0.9); 
+            --sys-text-main: #0c4a6e; 
+            --sys-text-muted: #0284c7; 
+            --dev-main: #0ea5e9; 
+            --dev-hover: #0284c7; 
+            --dev-btn-text: #ffffff; 
+            --glass-shadow: 0 10px 40px -10px rgba(14, 165, 233, 0.15); 
+        }
+        html[data-theme="dark-blue"] { 
+            color-scheme: dark; 
+            --sys-bg: linear-gradient(135deg, #0f172a 0%, #1e3a8a 100%); 
+            --sys-surface-glass: rgba(15, 23, 42, 0.65); 
+            --sys-input-glass: rgba(30, 58, 138, 0.3); 
+            --sys-border-glass: rgba(56, 189, 248, 0.2); 
+            --sys-text-main: #f0f9ff; 
+            --sys-text-muted: #7dd3fc; 
+            --dev-main: #38bdf8; 
+            --dev-hover: #0ea5e9; 
+            --dev-btn-text: #0f172a; 
+            --glass-shadow: 0 10px 40px -10px rgba(0,0,0,0.5); 
+        }
         html[data-theme="luxury"] { color-scheme: dark; --sys-bg: radial-gradient(circle at bottom left, #000000, #111111, #1a1a1a); --sys-surface-glass: rgba(20, 20, 20, 0.75); --sys-input-glass: rgba(10, 10, 10, 0.6); --sys-border-glass: rgba(212, 175, 55, 0.15); --sys-text-main: #fafaf9; --sys-text-muted: #a8a29e; --dev-main: #d4af37; --dev-hover: #b45309; --dev-btn-text: #000000; --glass-shadow: 0 10px 40px -10px rgba(0,0,0,0.7); }
         html[data-theme="vedic"] { color-scheme: light; --sys-bg: linear-gradient(135deg, #fff1f2 0%, #ffe4e6 100%); --sys-surface-glass: rgba(255, 255, 255, 0.6); --sys-input-glass: rgba(255, 255, 255, 0.4); --sys-border-glass: rgba(255, 255, 255, 0.8); --sys-text-main: #4c1d95; --sys-text-muted: #9d174d; --dev-main: #e11d48; --dev-hover: #be123c; --dev-btn-text: #ffffff; --glass-shadow: 0 10px 40px -10px rgba(159, 18, 57, 0.1); }
 
         .glass-panel { background: var(--sys-surface-glass); backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px); border: 1px solid var(--sys-border-glass); box-shadow: var(--glass-shadow); }
-        .glass-input { background: var(--sys-input-glass); border: 1px solid var(--sys-border-glass); color: var(--sys-text-main); transition: all 0.3s ease; font-size: 16px; } /* 16px prevents iOS zoom */
-        .glass-input:focus { outline: none; border-color: var(--dev-main); box-shadow: 0 0 0 3px rgba(128,128,128,0.15); }
+        .glass-input { background: var(--sys-input-glass); border: 1px solid var(--sys-border-glass); color: var(--sys-text-main); transition: all 0.3s ease; font-size: 16px; } 
+        .glass-input:focus { outline: none; border-color: var(--dev-main); box-shadow: 0 0 0 3px rgba(14, 165, 233, 0.2); }
         
         .btn-premium { background: linear-gradient(135deg, var(--dev-main), var(--dev-hover)); color: var(--dev-btn-text); transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
         .btn-premium:active { transform: scale(0.96); }
@@ -65,11 +89,6 @@
 
     <div id="securityShieldGateway" class="fixed inset-0 z-50 flex items-center justify-center p-4" style="background: var(--sys-bg); backdrop-filter: blur(30px); -webkit-backdrop-filter: blur(30px);">
         <div class="glass-panel rounded-[2rem] p-8 w-full max-w-md text-center space-y-6 shadow-2xl relative overflow-hidden">
-            <div id="decryptLoader" class="absolute inset-0 bg-black/60 backdrop-blur-md z-20 hidden flex-col items-center justify-center text-white">
-                <i class="fa-solid fa-circle-notch fa-spin text-4xl mb-3 text-dev-main"></i>
-                <p class="font-bold tracking-widest uppercase text-[10px]">Decrypting Vault...</p>
-            </div>
-
             <div class="mb-8">
                 <div class="w-20 h-20 rounded-[1.5rem] flex items-center justify-center mx-auto text-3xl glass-panel text-dev-main shadow-xl mb-4 border-2 border-white/20"><i id="lockIcon" class="fa-solid fa-shield-halved"></i></div>
                 <h1 class="text-3xl font-black tracking-tight text-sys-text-main">Spending Coach</h1>
@@ -78,9 +97,10 @@
             
             <div class="space-y-4">
                 <input type="password" id="masterPasswordField" placeholder="Enter Passphrase..." class="w-full glass-input rounded-2xl px-5 py-4 text-center tracking-widest font-bold text-lg shadow-inner">
-                <div id="hintSetupContainer" class="hidden text-left bg-rose-500/10 p-4 rounded-2xl border border-rose-500/20">
-                    <p class="text-[10px] text-rose-600 font-bold mb-2 uppercase tracking-wider"><i class="fa-solid fa-triangle-exclamation"></i> IF YOU FORGET THIS, DATA IS LOST. Set a hint:</p>
-                    <input type="text" id="passwordHintField" placeholder="e.g. Pet name + birth year..." class="w-full glass-input rounded-xl px-4 py-3 text-sm">
+                <div id="hintSetupContainer" class="hidden text-left bg-dev-main/10 p-4 rounded-2xl border border-dev-main/20">
+                    <p class="text-[10px] text-sys-text-main font-bold mb-2 uppercase tracking-wider"><i class="fa-solid fa-lightbulb text-amber-500"></i> New User? Create a password.</p>
+                    <input type="text" id="passwordHintField" placeholder="Set a recovery hint (e.g. Pet name)" class="w-full glass-input rounded-xl px-4 py-3 text-sm">
+                    <p class="text-[9px] text-rose-500 font-bold mt-2 uppercase tracking-widest text-center">If you forget your password, data is lost.</p>
                 </div>
                 <button onclick="triggerDecryptionPipeline()" id="gatewayAuthBtn" class="w-full btn-premium font-bold py-4 rounded-2xl flex items-center justify-center gap-2 text-lg shadow-xl"><i class="fa-solid fa-unlock"></i> Unlock Database</button>
                 <button id="showHintBtn" onclick="showPasswordHint()" class="text-xs text-sys-text-muted hover:text-sys-text-main font-bold pt-2 hidden w-full">Forgot Password? View Hint</button>
@@ -104,8 +124,8 @@
                     <h4 class="text-sm font-bold text-sys-text-main mb-4"><i class="fa-solid fa-user-plus text-dev-main"></i> Register New Profile</h4>
                     <form id="newUserForm" class="space-y-4">
                         <div class="grid grid-cols-2 gap-4">
-                            <div class="col-span-2"><label class="block text-[10px] font-bold text-sys-text-muted uppercase tracking-widest mb-1.5 ml-1">Name</label><input type="text" id="newUserName" required class="w-full glass-input rounded-xl px-4 py-3 text-sm"></div>
-                            <div><label class="block text-[10px] font-bold text-sys-text-muted uppercase tracking-widest mb-1.5 ml-1">Age</label><input type="number" id="newUserAge" required class="w-full glass-input rounded-xl px-4 py-3 text-sm"></div>
+                            <div class="col-span-2"><label class="block text-[10px] font-bold text-sys-text-muted uppercase tracking-widest mb-1.5 ml-1">Name</label><input type="text" id="newUserName" required placeholder="e.g. Rahul" class="w-full glass-input rounded-xl px-4 py-3 text-sm"></div>
+                            <div><label class="block text-[10px] font-bold text-sys-text-muted uppercase tracking-widest mb-1.5 ml-1">Age</label><input type="number" id="newUserAge" required placeholder="Years" class="w-full glass-input rounded-xl px-4 py-3 text-sm"></div>
                             <div><label class="block text-[10px] font-bold text-sys-text-muted uppercase tracking-widest mb-1.5 ml-1">Gender</label><select id="newUserGender" required class="w-full glass-input rounded-xl px-4 py-3 text-sm"><option>Male</option><option>Female</option><option>Other</option></select></div>
                             <div class="col-span-2">
                                 <label class="block text-[10px] font-bold text-sys-text-muted uppercase tracking-widest mb-1.5 ml-1">System Role</label>
@@ -131,11 +151,11 @@
                 <div>
                     <label class="block text-[10px] font-bold text-sys-text-muted uppercase tracking-widest mb-2">Neural Network Provider</label>
                     <div class="grid grid-cols-2 gap-3">
-                        <label class="glass-input rounded-2xl p-4 flex flex-col items-center justify-center gap-2 cursor-pointer hover:bg-white/20 transition has-[:checked]:border-dev-main has-[:checked]:shadow-[inset_0_0_20px_rgba(0,0,0,0.05)] text-center">
+                        <label class="glass-input rounded-2xl p-4 flex flex-col items-center justify-center gap-2 cursor-pointer hover:bg-white/20 transition has-[:checked]:border-dev-main has-[:checked]:shadow-[inset_0_0_20px_rgba(14,165,233,0.15)] text-center">
                             <input type="radio" name="aiProvider" value="gemini" checked class="accent-dev-main hidden">
                             <i class="fa-brands fa-google text-2xl mb-1"></i><span class="text-xs font-extrabold">Gemini</span>
                         </label>
-                        <label class="glass-input rounded-2xl p-4 flex flex-col items-center justify-center gap-2 cursor-pointer hover:bg-white/20 transition has-[:checked]:border-dev-main has-[:checked]:shadow-[inset_0_0_20px_rgba(0,0,0,0.05)] text-center">
+                        <label class="glass-input rounded-2xl p-4 flex flex-col items-center justify-center gap-2 cursor-pointer hover:bg-white/20 transition has-[:checked]:border-dev-main has-[:checked]:shadow-[inset_0_0_20px_rgba(14,165,233,0.15)] text-center">
                             <input type="radio" name="aiProvider" value="openai" class="accent-dev-main hidden">
                             <i class="fa-solid fa-robot text-2xl mb-1"></i><span class="text-xs font-extrabold">OpenAI GPT</span>
                         </label>
@@ -155,7 +175,7 @@
         <header class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 sm:gap-6 no-print">
             <div>
                 <h1 class="text-3xl font-black text-sys-text-main tracking-tight leading-none flex items-center gap-3">
-                    <span class="w-10 h-10 rounded-xl flex items-center justify-center glass-panel border-none shadow-sm text-dev-main text-lg"><i class="fa-solid fa-wallet"></i></span> Dashboard
+                    <span class="w-10 h-10 rounded-xl flex items-center justify-center glass-panel border-none shadow-sm text-dev-main text-lg"><i class="fa-solid fa-wallet"></i></span> Spending Coach
                 </h1>
                 <p id="headerGreeting" class="text-sys-text-muted text-xs mt-2 font-bold uppercase tracking-widest ml-14">Vault Locked</p>
             </div>
@@ -169,7 +189,7 @@
                 <div class="hidden md:flex items-center gap-2 glass-panel px-4 py-3 rounded-2xl flex-1 md:flex-none border-none shadow-sm">
                     <i class="fa-solid fa-palette text-sys-text-muted text-sm"></i>
                     <select id="themeSelector" onchange="changeTheme()" class="bg-transparent text-sm text-sys-text-main font-bold focus:outline-none cursor-pointer appearance-none w-full">
-                        <option value="default">VisionOS</option><option value="cyber">Cyber Mesh</option><option value="luxury">Obsidian</option><option value="vedic">Aura</option>
+                        <option value="default">Light Blue OS</option><option value="dark-blue">Dark Blue OS</option><option value="luxury">Obsidian Luxe</option><option value="vedic">Rose Aura</option>
                     </select>
                 </div>
             </div>
@@ -185,7 +205,7 @@
                 <div class="flex-1 space-y-4">
                     <div class="flex justify-between items-center">
                         <div class="flex items-center gap-2"><span id="aiStatus" class="text-[10px] font-bold px-3 py-1.5 rounded-full uppercase tracking-widest glass-input text-dev-main flex items-center gap-1.5 border-none shadow-inner"><span class="w-2 h-2 rounded-full bg-amber-500 shadow-[0_0_8px_rgba(245,158,11,0.8)]"></span> API Disconnected</span></div>
-                        <button onclick="toggleApiModal()" class="text-xs text-sys-text-muted hover:text-sys-text-main font-bold bg-black/5 dark:bg-white/5 px-3 py-1.5 rounded-lg"><i class="fa-solid fa-gear"></i> Config</button>
+                        <button onclick="toggleApiModal()" class="text-xs text-sys-text-muted hover:text-sys-text-main font-bold bg-black/5 dark:bg-white/5 px-3 py-1.5 rounded-lg transition"><i class="fa-solid fa-gear"></i> Config</button>
                     </div>
                     <h3 class="text-2xl font-black text-sys-text-main tracking-tight flex items-center gap-2">AI Financial Analysis</h3>
                     <div id="coachMessage" class="text-sm text-sys-text-main leading-relaxed ai-response min-h-[100px] p-5 glass-input rounded-2xl border-none shadow-inner">Database must be unlocked to run telemetry.</div>
@@ -197,7 +217,7 @@
                         <button onclick="requestTrueAIAnalysis('standard')" class="glass-panel text-sys-text-main hover:bg-black/5 dark:hover:bg-white/5 font-bold py-3 px-3 rounded-xl text-xs flex items-center justify-center gap-2 transition shadow-sm border-none"><i class="fa-solid fa-magnifying-glass-chart text-dev-main"></i> Deep Audit</button>
                         <button onclick="requestTrueAIAnalysis('savings')" class="glass-panel text-sys-text-main hover:bg-black/5 dark:hover:bg-white/5 font-bold py-3 px-3 rounded-xl text-xs flex items-center justify-center gap-2 transition shadow-sm border-none"><i class="fa-solid fa-piggy-bank text-emerald-500"></i> Savings Plan</button>
                         <button onclick="requestTrueAIAnalysis('roast')" class="glass-panel text-sys-text-main hover:bg-rose-500/10 font-bold py-3 px-3 rounded-xl text-xs flex items-center justify-center gap-2 transition shadow-sm border border-rose-500/20 text-rose-600"><i class="fa-solid fa-fire"></i> Ruthless Roast</button>
-                        <button onclick="requestTrueAIAnalysis('invest')" class="glass-panel text-sys-text-main hover:bg-black/5 dark:hover:bg-white/5 font-bold py-3 px-3 rounded-xl text-xs flex items-center justify-center gap-2 transition shadow-sm border-none"><i class="fa-solid fa-arrow-trend-up text-blue-500"></i> Investment Edge</button>
+                        <button onclick="requestTrueAIAnalysis('invest')" class="glass-panel text-sys-text-main hover:bg-black/5 dark:hover:bg-white/5 font-bold py-3 px-3 rounded-xl text-xs flex items-center justify-center gap-2 transition shadow-sm border-none"><i class="fa-solid fa-arrow-trend-up text-dev-main"></i> Investment Edge</button>
                     </div>
                     <div class="flex gap-2 mt-2">
                         <input type="text" id="customAiQuery" placeholder="Ask a custom question..." class="flex-1 glass-input rounded-xl px-4 py-3 text-sm border-none shadow-inner">
@@ -232,7 +252,7 @@
                     <table class="w-full text-left border-collapse min-w-[700px]">
                         <thead>
                             <tr class="text-[10px] font-bold uppercase tracking-widest text-sys-text-muted sticky top-0 z-10 shadow-sm" style="background: rgba(128,128,128,0.1); backdrop-filter: blur(20px);">
-                                <th class="py-5 px-6 whitespace-nowrap">Identity</th><th class="py-5 px-5">Transaction Scope</th><th class="py-5 px-5">Context Vectors</th><th class="py-5 px-6 text-right">Settlement</th><th class="py-5 px-4 no-print text-center">Docs</th><th class="py-5 px-4 no-print"></th>
+                                <th class="py-5 px-6 whitespace-nowrap">Identity</th><th class="py-5 px-5">Transaction Scope</th><th class="py-5 px-5">Context Vectors</th><th class="py-5 px-6 text-right">Settlement</th><th class="py-5 px-4 no-print"></th>
                             </tr>
                         </thead>
                         <tbody id="ledgerBody" class="divide-y divide-black/5 dark:divide-white/5 text-sm"></tbody>
@@ -256,8 +276,12 @@
                     </div>
                     <input type="hidden" id="editingId" value="">
 
+                    <div id="noUsersWarning" class="hidden flex flex-col gap-3 bg-dev-main/10 border border-dev-main/20 p-5 rounded-2xl items-start">
+                        <p class="text-sm text-sys-text-main font-bold"><i class="fa-solid fa-circle-info text-dev-main"></i> Welcome! You need to create a Household Profile first.</p>
+                        <button type="button" onclick="closeTransactionModal(); setTimeout(toggleUsersModal, 400);" class="btn-premium px-5 py-3 rounded-xl text-sm font-bold w-full sm:w-auto"><i class="fa-solid fa-user-plus"></i> Create Your First Profile</button>
+                    </div>
+
                     <div id="dynamicSpendersContainer" class="grid grid-cols-2 sm:grid-cols-4 gap-2"></div>
-                    <p id="noUsersWarning" class="hidden text-xs text-rose-500 font-bold bg-rose-500/10 border border-rose-500/20 p-3 rounded-xl"><i class="fa-solid fa-triangle-exclamation"></i> Add a Profile first via Dashboard.</p>
 
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
                         <div class="sm:col-span-2"><label class="block text-[10px] font-bold text-sys-text-muted uppercase tracking-widest mb-2 ml-1">Item / Service</label><input type="text" id="item" required placeholder="What did you pay for?" class="w-full glass-input rounded-2xl px-5 py-4 shadow-inner border-none bg-black/5 dark:bg-white/5"></div>
@@ -290,28 +314,23 @@
         </div>
     </div>
 
-    <nav class="fixed bottom-0 w-full glass-panel border-b-0 border-x-0 rounded-t-3xl pb-safe z-40 no-print shadow-[0_-10px_40px_rgba(0,0,0,0.1)] block sm:hidden">
-        <div class="flex justify-around items-center px-2 py-2">
-            <button onclick="window.scrollTo({top:0, behavior:'smooth'})" class="flex flex-col items-center justify-center p-3 text-sys-text-muted hover:text-dev-main transition w-16">
-                <i class="fa-solid fa-house text-xl mb-1"></i><span class="text-[9px] font-bold tracking-widest uppercase">Home</span>
-            </button>
-            <button onclick="checkClipboardForSMS()" class="flex flex-col items-center justify-center p-3 text-sys-text-muted hover:text-dev-main transition w-16">
-                <i class="fa-solid fa-comment-sms text-xl mb-1"></i><span class="text-[9px] font-bold tracking-widest uppercase">SMS</span>
-            </button>
-            <button onclick="openTransactionModal()" class="btn-premium w-14 h-14 rounded-full flex items-center justify-center text-2xl shadow-xl transform -translate-y-4 border-4 border-white dark:border-[#1a1a1a]">
-                <i class="fa-solid fa-plus"></i>
-            </button>
-            <button onclick="toggleUsersModal()" class="flex flex-col items-center justify-center p-3 text-sys-text-muted hover:text-dev-main transition w-16">
-                <i class="fa-solid fa-users text-xl mb-1"></i><span class="text-[9px] font-bold tracking-widest uppercase">Users</span>
-            </button>
-            <button onclick="lockVault()" class="flex flex-col items-center justify-center p-3 text-rose-500 hover:text-rose-600 transition w-16">
-                <i class="fa-solid fa-lock text-xl mb-1"></i><span class="text-[9px] font-bold tracking-widest uppercase">Lock</span>
-            </button>
-        </div>
+    <nav class="fixed bottom-0 w-full glass-panel border-b-0 border-x-0 rounded-t-3xl pb-safe z-40 no-print shadow-[0_-10px_40px_rgba(0,0,0,0.1)] flex justify-evenly items-center px-2 py-3 sm:hidden">
+        <button onclick="window.scrollTo({top:0, behavior:'smooth'})" class="flex flex-col items-center justify-center p-2 text-sys-text-muted hover:text-dev-main transition">
+            <i class="fa-solid fa-house text-xl mb-1"></i><span class="text-[9px] font-bold tracking-widest uppercase">Home</span>
+        </button>
+        <button onclick="openTransactionModal()" class="btn-premium w-14 h-14 rounded-full flex items-center justify-center text-2xl shadow-xl transform -translate-y-5 border-4 border-[rgba(255,255,255,0.5)] dark:border-[rgba(0,0,0,0.5)]">
+            <i class="fa-solid fa-plus"></i>
+        </button>
+        <button onclick="toggleUsersModal()" class="flex flex-col items-center justify-center p-2 text-sys-text-muted hover:text-dev-main transition">
+            <i class="fa-solid fa-users text-xl mb-1"></i><span class="text-[9px] font-bold tracking-widest uppercase">Users</span>
+        </button>
+        <button onclick="lockVault()" class="flex flex-col items-center justify-center p-2 text-rose-500 hover:text-rose-600 transition">
+            <i class="fa-solid fa-lock text-xl mb-1"></i><span class="text-[9px] font-bold tracking-widest uppercase">Lock</span>
+        </button>
     </nav>
     
-    <button onclick="openTransactionModal()" class="hidden sm:flex fixed bottom-8 right-8 btn-premium w-16 h-16 rounded-full items-center justify-center text-2xl shadow-2xl z-40 hover:scale-105 transition-transform no-print">
-        <i class="fa-solid fa-plus"></i>
+    <button onclick="openTransactionModal()" class="hidden sm:flex fixed bottom-8 right-8 btn-premium px-6 py-4 rounded-full items-center justify-center text-lg font-bold shadow-2xl z-40 hover:scale-105 transition-transform no-print gap-3">
+        <i class="fa-solid fa-plus"></i> New Transaction
     </button>
 
     <script>
@@ -438,7 +457,6 @@
         function openTransactionModal() {
             const m = document.getElementById('transactionModal');
             m.classList.remove('hidden'); m.style.display = 'flex';
-            // Slight delay to allow display:flex to apply before adding active class for animation
             setTimeout(() => { m.querySelector('.bottom-sheet').classList.add('active'); }, 10);
             renderFormSpenders();
         }
@@ -446,7 +464,7 @@
         function closeTransactionModal() {
             const m = document.getElementById('transactionModal');
             m.querySelector('.bottom-sheet').classList.remove('active');
-            setTimeout(() => { m.classList.add('hidden'); m.style.display = ''; resetForm(); }, 400); // Wait for transition
+            setTimeout(() => { m.classList.add('hidden'); m.style.display = ''; resetForm(); }, 400); 
         }
 
         // --- ID GENERATOR & USERS ---
@@ -562,7 +580,7 @@
             const exp = database.expenses.find(e => String(e.id) === String(id));
             document.getElementById('editingId').value = exp.id;
             
-            openTransactionModal(); // Open Bottom Sheet
+            openTransactionModal(); 
             renderFormSpenders(exp.spender);
             
             document.getElementById('item').value = exp.item; document.getElementById('price').value = exp.price; document.getElementById('category').value = exp.category; document.getElementById('store').value = exp.store !== '-' ? exp.store : '';
@@ -584,9 +602,16 @@
 
         // --- HIGH PERFORMANCE RENDERING ENGINE ---
         function renderFormSpenders(preSelectedName = null) {
-            const container = document.getElementById('dynamicSpendersContainer'); const warning = document.getElementById('noUsersWarning');
-            if (database.users.length === 0) { container.innerHTML = ''; warning.classList.remove('hidden'); document.getElementById('submitBtn').disabled = true; return; }
-            warning.classList.add('hidden'); document.getElementById('submitBtn').disabled = false;
+            const container = document.getElementById('dynamicSpendersContainer'); 
+            const warning = document.getElementById('noUsersWarning');
+            if (database.users.length === 0) { 
+                container.innerHTML = ''; 
+                warning.classList.remove('hidden'); 
+                document.getElementById('submitBtn').disabled = true; 
+                return; 
+            }
+            warning.classList.add('hidden'); 
+            document.getElementById('submitBtn').disabled = false;
 
             const htmlArr = database.users.map((u, i) => {
                 const isChecked = preSelectedName ? (u.name === preSelectedName) : (i === 0);
@@ -615,7 +640,11 @@
 
             const tbody = document.getElementById('ledgerBody');
             if (filtered.length === 0) {
-                tbody.innerHTML = `<tr><td colspan="5" class="text-center py-20 text-sys-text-muted font-bold tracking-widest uppercase text-[10px]">No vault records match current telemetry filters.</td></tr>`;
+                if (database.expenses.length === 0) {
+                    tbody.innerHTML = `<tr><td colspan="5" class="text-center py-20 text-sys-text-main font-bold"><i class="fa-solid fa-wand-magic-sparkles text-dev-main text-3xl mb-4 block"></i>Welcome to Spending Coach!<br><span class="text-sys-text-muted text-xs font-normal">Tap the "New Transaction" button to log your first record.</span></td></tr>`;
+                } else {
+                    tbody.innerHTML = `<tr><td colspan="5" class="text-center py-20 text-sys-text-muted font-bold tracking-widest uppercase text-[10px]">No vault records match current telemetry filters.</td></tr>`;
+                }
             } else {
                 let htmlBuffer = [];
                 filtered.forEach(exp => {
@@ -664,25 +693,6 @@
             document.getElementById('dashboardCards').innerHTML = dashHtml.join('');
         }
 
-        // --- MANUAL IPHONE SMS PARSER ---
-        async function checkClipboardForSMS() {
-            try {
-                const clipboardText = await navigator.clipboard.readText();
-                if ((clipboardText.includes("debited") || clipboardText.includes("INR")) && clipboardText.includes("via UPI")) {
-                    const amountMatch = clipboardText.match(/(?:INR|Rs\.?)\s*([\d,]+\.\d{2})/i);
-                    const merchantMatch = clipboardText.match(/at\s+([A-Za-z0-9\s.]+)\s+on/i) || clipboardText.match(/to\s+([A-Za-z0-9\s.]+)\s+via/i);
-                    if (amountMatch) {
-                        const parsedAmount = parseFloat(amountMatch[1].replace(/,/g, '')); const parsedMerchant = merchantMatch ? merchantMatch[1].trim() : "UPI Merchant";
-                        const defaultSpender = database.users.length > 0 ? database.users[0].name : "System";
-                        if (confirm(`SMS transaction detected!\nLog this spend for ${defaultSpender}?\n\nAmount: ₹${parsedAmount}\nStore: ${parsedMerchant}`)) {
-                            database.expenses.unshift({ id: Date.now(), spender: defaultSpender, item: parsedMerchant, price: parsedAmount, category: "Groceries & Daily Needs", store: parsedMerchant, location: "Online / UPI", date: new Date().toISOString().split('T')[0], time: `${String(new Date().getHours()).padStart(2, '0')}:${String(new Date().getMinutes()).padStart(2, '0')}`, paymentMethod: "Mobile App / UPI", notes: `Auto SMS: "${clipboardText}"` });
-                            saveEncryptedDatabase(); updateUI(); await navigator.clipboard.writeText(""); 
-                        }
-                    } else { alert("No valid transaction amount found in clipboard."); }
-                } else { alert("Clipboard does not contain a recognized bank transaction SMS."); }
-            } catch (err) { alert("Clipboard observation bypassed or access denied by device."); }
-        }
-
         // --- EXPANDED MULTI-MODEL AI AGENT REQUEST ---
         async function requestTrueAIAnalysis(mode = 'standard') {
             if(!vaultMasterKey || database.expenses.length === 0) return document.getElementById('coachMessage').innerHTML = `<span class="text-rose-500 font-bold">Please log expenses first.</span>`;
@@ -693,7 +703,6 @@
             
             const currCode = localStorage.getItem('coach_currency') || 'INR';
             
-            // Context Optimization: Calculate top level metrics to save AI tokens
             let totalSpend = 0; let catTotals = {}; let userTotals = {};
             database.expenses.forEach(e => { 
                 totalSpend += e.price; 
