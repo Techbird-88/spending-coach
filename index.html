@@ -28,90 +28,89 @@
         @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
         body { font-family: 'Plus Jakarta Sans', sans-serif; background: var(--sys-bg); background-attachment: fixed; background-size: cover; min-height: 100vh; -webkit-tap-highlight-color: transparent; }
         
-        .custom-scrollbar::-webkit-scrollbar { width: 6px; height: 6px; }
+        .custom-scrollbar::-webkit-scrollbar { width: 4px; height: 4px; }
         .custom-scrollbar::-webkit-scrollbar-track { background: transparent; }
         .custom-scrollbar::-webkit-scrollbar-thumb { background: rgba(128,128,128,0.3); border-radius: 10px; }
         
-        .ai-response strong { color: var(--dev-main); font-weight: 700; }
-        .ai-response ul { list-style-type: disc; margin-left: 1.5rem; margin-top: 0.5rem; margin-bottom: 0.5rem;}
-        .ai-response li { margin-bottom: 0.25rem; }
+        .ai-response strong { color: var(--dev-main); font-weight: 800; }
+        .ai-response ul { list-style-type: none; margin-top: 0.75rem; margin-bottom: 0.75rem; padding-left: 0.5rem; border-left: 2px solid var(--dev-main); }
+        .ai-response li { margin-bottom: 0.5rem; padding-left: 0.75rem; font-size: 0.875rem; }
 
-        /* THEME VARIABLES FOR GLASSMORPHISM */
-        :root, html[data-theme="default"] { color-scheme: light; --sys-bg: radial-gradient(circle at top left, #f3e7e9 0%, #e3eeff 90%, #e3eeff 100%); --sys-surface-glass: rgba(255, 255, 255, 0.65); --sys-input-glass: rgba(255, 255, 255, 0.5); --sys-border-glass: rgba(255, 255, 255, 0.8); --sys-text-main: #0f172a; --sys-text-muted: #64748b; --dev-main: #4f46e5; --dev-hover: #4338ca; --dev-btn-text: #ffffff; --glass-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.07); }
-        html[data-theme="cyber"] { color-scheme: dark; --sys-bg: radial-gradient(circle at top right, #0f2027, #203a43, #2c5364); --sys-surface-glass: rgba(15, 15, 15, 0.55); --sys-input-glass: rgba(0, 0, 0, 0.4); --sys-border-glass: rgba(57, 255, 20, 0.15); --sys-text-main: #39ff14; --sys-text-muted: #1f8a0b; --dev-main: #00ffff; --dev-hover: #00cccc; --dev-btn-text: #000000; --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.5); }
-        html[data-theme="luxury"] { color-scheme: dark; --sys-bg: radial-gradient(circle at bottom left, #141414, #292929, #0a0a0a); --sys-surface-glass: rgba(30, 30, 30, 0.65); --sys-input-glass: rgba(10, 10, 10, 0.5); --sys-border-glass: rgba(212, 175, 55, 0.25); --sys-text-main: #f5f5dc; --sys-text-muted: #8b7e66; --dev-main: #d4af37; --dev-hover: #b5952f; --dev-btn-text: #000000; --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.6); }
-        html[data-theme="vedic"] { color-scheme: light; --sys-bg: linear-gradient(120deg, #ffecd2 0%, #fcb69f 100%); --sys-surface-glass: rgba(255, 255, 255, 0.55); --sys-input-glass: rgba(255, 255, 255, 0.4); --sys-border-glass: rgba(255, 255, 255, 0.7); --sys-text-main: #4c1d95; --sys-text-muted: #be185d; --dev-main: #e11d48; --dev-hover: #be123c; --dev-btn-text: #ffffff; --glass-shadow: 0 8px 32px 0 rgba(136, 19, 55, 0.08); }
+        /* VISION OS / PREMIUM GLASSMORPHISM THEMES */
+        :root, html[data-theme="default"] { color-scheme: light; --sys-bg: radial-gradient(circle at top left, #f8fafc 0%, #e2e8f0 100%); --sys-surface-glass: rgba(255, 255, 255, 0.7); --sys-input-glass: rgba(255, 255, 255, 0.5); --sys-border-glass: rgba(255, 255, 255, 0.9); --sys-text-main: #0f172a; --sys-text-muted: #475569; --dev-main: #000000; --dev-hover: #333333; --dev-btn-text: #ffffff; --glass-shadow: 0 10px 40px -10px rgba(0,0,0,0.1); }
+        html[data-theme="cyber"] { color-scheme: dark; --sys-bg: radial-gradient(circle at top right, #09090b, #18181b, #27272a); --sys-surface-glass: rgba(24, 24, 27, 0.6); --sys-input-glass: rgba(0, 0, 0, 0.4); --sys-border-glass: rgba(57, 255, 20, 0.2); --sys-text-main: #39ff14; --sys-text-muted: #22c55e; --dev-main: #00ffff; --dev-hover: #0891b2; --dev-btn-text: #000000; --glass-shadow: 0 10px 40px -10px rgba(0,0,0,0.5); }
+        html[data-theme="luxury"] { color-scheme: dark; --sys-bg: radial-gradient(circle at bottom left, #000000, #111111, #1a1a1a); --sys-surface-glass: rgba(20, 20, 20, 0.75); --sys-input-glass: rgba(10, 10, 10, 0.6); --sys-border-glass: rgba(212, 175, 55, 0.15); --sys-text-main: #fafaf9; --sys-text-muted: #a8a29e; --dev-main: #d4af37; --dev-hover: #b45309; --dev-btn-text: #000000; --glass-shadow: 0 10px 40px -10px rgba(0,0,0,0.7); }
+        html[data-theme="vedic"] { color-scheme: light; --sys-bg: linear-gradient(135deg, #fff1f2 0%, #ffe4e6 100%); --sys-surface-glass: rgba(255, 255, 255, 0.6); --sys-input-glass: rgba(255, 255, 255, 0.4); --sys-border-glass: rgba(255, 255, 255, 0.8); --sys-text-main: #4c1d95; --sys-text-muted: #9d174d; --dev-main: #e11d48; --dev-hover: #be123c; --dev-btn-text: #ffffff; --glass-shadow: 0 10px 40px -10px rgba(159, 18, 57, 0.1); }
 
-        .glass-panel { background: var(--sys-surface-glass); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border: 1px solid var(--sys-border-glass); box-shadow: var(--glass-shadow); }
+        .glass-panel { background: var(--sys-surface-glass); backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px); border: 1px solid var(--sys-border-glass); box-shadow: var(--glass-shadow); }
+        .glass-input { background: var(--sys-input-glass); border: 1px solid var(--sys-border-glass); color: var(--sys-text-main); transition: all 0.3s ease; font-size: 16px; } /* 16px prevents iOS zoom */
+        .glass-input:focus { outline: none; border-color: var(--dev-main); box-shadow: 0 0 0 3px rgba(128,128,128,0.15); }
         
-        .glass-input { background: var(--sys-input-glass); border: 1px solid var(--sys-border-glass); color: var(--sys-text-main); transition: all 0.3s ease; font-size: 16px; }
-        .glass-input:focus { outline: none; border-color: var(--dev-main); box-shadow: 0 0 0 2px rgba(128,128,128,0.1); }
-        
-        .btn-premium { background: linear-gradient(135deg, var(--dev-main), var(--dev-hover)); color: var(--dev-btn-text); box-shadow: 0 4px 15px rgba(0,0,0,0.1); transition: all 0.3s ease; }
-        .btn-premium:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(0,0,0,0.15); }
-        .btn-premium:disabled { opacity: 0.7; transform: none; cursor: not-allowed; }
+        .btn-premium { background: linear-gradient(135deg, var(--dev-main), var(--dev-hover)); color: var(--dev-btn-text); transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
+        .btn-premium:active { transform: scale(0.96); }
+        .btn-premium:disabled { opacity: 0.6; pointer-events: none; }
+
+        /* NATIVE MOBILE BOTTOM SHEET ANIMATIONS */
+        .bottom-sheet { transform: translateY(100%); transition: transform 0.4s cubic-bezier(0.32, 0.72, 0, 1); }
+        .bottom-sheet.active { transform: translateY(0); }
+
+        /* HORIZONTAL SCROLL SNAP FOR DASHBOARD */
+        .snap-x-mandatory { scroll-snap-type: x mandatory; }
+        .snap-center-item { scroll-snap-align: center; }
 
         @media print { body { background: white !important; } .no-print { display: none !important; } .glass-panel { box-shadow: none; border: 1px solid #ccc; background: white; backdrop-filter: none; } }
     </style>
 </head>
-<body class="text-sys-text-main antialiased relative transition-colors duration-500 pb-10 sm:pb-0">
+<body class="text-sys-text-main antialiased relative transition-colors duration-500 pb-24 sm:pb-6">
 
-    <div id="securityShieldGateway" class="fixed inset-0 z-50 flex items-center justify-center p-4" style="background: var(--sys-bg); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);">
-        <div class="glass-panel rounded-3xl p-6 sm:p-8 w-full max-w-md text-center space-y-5 shadow-2xl relative overflow-hidden">
-            <div class="mb-6 border-b border-black/5 dark:border-white/5 pb-4">
-                <div class="w-16 h-16 rounded-2xl flex items-center justify-center mx-auto text-2xl glass-panel text-dev-main shadow-lg mb-3">
-                    <i id="lockIcon" class="fa-solid fa-shield-halved"></i>
-                </div>
-                <h1 class="text-2xl font-black tracking-tight text-sys-text-main">Spending Coach</h1>
-                <p class="text-xs text-sys-text-muted mt-1 font-bold tracking-widest uppercase">AES-256 Secured Ledger</p>
+    <div id="securityShieldGateway" class="fixed inset-0 z-50 flex items-center justify-center p-4" style="background: var(--sys-bg); backdrop-filter: blur(30px); -webkit-backdrop-filter: blur(30px);">
+        <div class="glass-panel rounded-[2rem] p-8 w-full max-w-md text-center space-y-6 shadow-2xl relative overflow-hidden">
+            <div id="decryptLoader" class="absolute inset-0 bg-black/60 backdrop-blur-md z-20 hidden flex-col items-center justify-center text-white">
+                <i class="fa-solid fa-circle-notch fa-spin text-4xl mb-3 text-dev-main"></i>
+                <p class="font-bold tracking-widest uppercase text-[10px]">Decrypting Vault...</p>
             </div>
 
-            <div>
-                <h2 id="securityGatewayTitle" class="text-lg font-bold text-sys-text-main">Enter Master Passphrase</h2>
+            <div class="mb-8">
+                <div class="w-20 h-20 rounded-[1.5rem] flex items-center justify-center mx-auto text-3xl glass-panel text-dev-main shadow-xl mb-4 border-2 border-white/20"><i id="lockIcon" class="fa-solid fa-shield-halved"></i></div>
+                <h1 class="text-3xl font-black tracking-tight text-sys-text-main">Spending Coach</h1>
+                <p class="text-[10px] text-sys-text-muted mt-2 font-bold tracking-widest uppercase">AES-256 Military Grade Ledger</p>
             </div>
             
             <div class="space-y-4">
-                <input type="password" id="masterPasswordField" placeholder="Passphrase..." class="w-full glass-input rounded-2xl px-4 py-3.5 text-center tracking-widest font-bold">
-                <div id="hintSetupContainer" class="hidden">
-                    <p class="text-[10px] text-rose-500 font-bold mb-1 text-left"><i class="fa-solid fa-triangle-exclamation"></i> IF YOU FORGET THIS, DATA IS LOST FOREVER. Set a hint:</p>
-                    <input type="text" id="passwordHintField" placeholder="Optional: Pet name + birth year..." class="w-full glass-input rounded-xl px-4 py-2.5 text-xs">
+                <input type="password" id="masterPasswordField" placeholder="Enter Passphrase..." class="w-full glass-input rounded-2xl px-5 py-4 text-center tracking-widest font-bold text-lg shadow-inner">
+                <div id="hintSetupContainer" class="hidden text-left bg-rose-500/10 p-4 rounded-2xl border border-rose-500/20">
+                    <p class="text-[10px] text-rose-600 font-bold mb-2 uppercase tracking-wider"><i class="fa-solid fa-triangle-exclamation"></i> IF YOU FORGET THIS, DATA IS LOST. Set a hint:</p>
+                    <input type="text" id="passwordHintField" placeholder="e.g. Pet name + birth year..." class="w-full glass-input rounded-xl px-4 py-3 text-sm">
                 </div>
-                <button onclick="triggerDecryptionPipeline()" id="gatewayAuthBtn" class="w-full btn-premium font-bold py-3.5 rounded-2xl flex items-center justify-center gap-2"><i class="fa-solid fa-unlock"></i> Unlock Database</button>
-                <button id="showHintBtn" onclick="showPasswordHint()" class="text-xs text-sys-text-muted hover:text-sys-text-main font-bold underline decoration-dotted hidden w-full">Forgot Password? View Hint</button>
+                <button onclick="triggerDecryptionPipeline()" id="gatewayAuthBtn" class="w-full btn-premium font-bold py-4 rounded-2xl flex items-center justify-center gap-2 text-lg shadow-xl"><i class="fa-solid fa-unlock"></i> Unlock Database</button>
+                <button id="showHintBtn" onclick="showPasswordHint()" class="text-xs text-sys-text-muted hover:text-sys-text-main font-bold pt-2 hidden w-full">Forgot Password? View Hint</button>
             </div>
-            <p id="securityGatewayError" class="text-xs text-rose-500 hidden font-bold animate-pulse"><i class="fa-solid fa-circle-exclamation"></i> Decryption math failed. Password wrong.</p>
+            <p id="securityGatewayError" class="text-xs text-rose-500 hidden font-bold animate-pulse mt-4"><i class="fa-solid fa-circle-exclamation"></i> Decryption math failed. Password incorrect.</p>
         </div>
     </div>
 
-    <div id="usersModal" class="hidden no-print fixed inset-0 bg-black/50 backdrop-blur-md z-50 flex items-center justify-center p-4">
-        <div class="glass-panel rounded-3xl w-full max-w-2xl flex flex-col max-h-[90vh] overflow-hidden shadow-2xl">
-            <div class="p-5 border-b border-white/10 flex justify-between items-center" style="background: rgba(0,0,0,0.02);">
-                <h3 class="text-lg font-extrabold text-sys-text-main"><i class="fa-solid fa-users text-dev-main"></i> Household Profiles</h3>
-                <button onclick="toggleUsersModal()" class="text-sys-text-muted hover:text-sys-text-main transition p-2"><i class="fa-solid fa-xmark text-xl"></i></button>
+    <div id="usersModal" class="hidden no-print fixed inset-0 bg-black/60 backdrop-blur-md z-50 flex items-center justify-center p-4">
+        <div class="glass-panel rounded-[2rem] w-full max-w-lg flex flex-col max-h-[90vh] overflow-hidden shadow-2xl">
+            <div class="p-6 border-b border-white/10 flex justify-between items-center bg-black/5 dark:bg-white/5">
+                <h3 class="text-xl font-extrabold text-sys-text-main tracking-tight"><i class="fa-solid fa-users text-dev-main mr-2"></i> Household Profiles</h3>
+                <button onclick="toggleUsersModal()" class="text-sys-text-muted hover:text-sys-text-main transition p-2 bg-white/10 rounded-full"><i class="fa-solid fa-xmark"></i></button>
             </div>
-            
-            <div class="p-5 overflow-y-auto custom-scrollbar">
-                <div class="mb-6">
-                    <h4 class="text-xs font-bold text-sys-text-muted uppercase tracking-wider mb-3">Active Roster</h4>
-                    <div id="activeUsersList" class="grid grid-cols-1 sm:grid-cols-2 gap-3"></div>
+            <div class="p-6 overflow-y-auto custom-scrollbar space-y-6">
+                <div>
+                    <h4 class="text-[10px] font-bold text-sys-text-muted uppercase tracking-widest mb-3">Active Roster</h4>
+                    <div id="activeUsersList" class="grid grid-cols-1 gap-3"></div>
                 </div>
-
-                <div class="glass-panel p-5 rounded-2xl">
+                <div class="glass-panel p-5 rounded-3xl border border-dev-main/20">
                     <h4 class="text-sm font-bold text-sys-text-main mb-4"><i class="fa-solid fa-user-plus text-dev-main"></i> Register New Profile</h4>
                     <form id="newUserForm" class="space-y-4">
-                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                            <div><label class="block text-[10px] font-bold text-sys-text-muted uppercase tracking-widest mb-1.5 ml-1">Name</label><input type="text" id="newUserName" required class="w-full glass-input rounded-xl px-3.5 py-2.5"></div>
-                            <div><label class="block text-[10px] font-bold text-sys-text-muted uppercase tracking-widest mb-1.5 ml-1">Age</label><input type="number" id="newUserAge" required class="w-full glass-input rounded-xl px-3.5 py-2.5"></div>
-                            <div><label class="block text-[10px] font-bold text-sys-text-muted uppercase tracking-widest mb-1.5 ml-1">Gender</label><select id="newUserGender" required class="w-full glass-input rounded-xl px-3.5 py-2.5"><option>Male</option><option>Female</option><option>Other</option></select></div>
-                            <div>
+                        <div class="grid grid-cols-2 gap-4">
+                            <div class="col-span-2"><label class="block text-[10px] font-bold text-sys-text-muted uppercase tracking-widest mb-1.5 ml-1">Name</label><input type="text" id="newUserName" required class="w-full glass-input rounded-xl px-4 py-3 text-sm"></div>
+                            <div><label class="block text-[10px] font-bold text-sys-text-muted uppercase tracking-widest mb-1.5 ml-1">Age</label><input type="number" id="newUserAge" required class="w-full glass-input rounded-xl px-4 py-3 text-sm"></div>
+                            <div><label class="block text-[10px] font-bold text-sys-text-muted uppercase tracking-widest mb-1.5 ml-1">Gender</label><select id="newUserGender" required class="w-full glass-input rounded-xl px-4 py-3 text-sm"><option>Male</option><option>Female</option><option>Other</option></select></div>
+                            <div class="col-span-2">
                                 <label class="block text-[10px] font-bold text-sys-text-muted uppercase tracking-widest mb-1.5 ml-1">System Role</label>
-                                <select id="newUserRelation" required class="w-full glass-input rounded-xl px-3.5 py-2.5 font-bold">
-                                    <option value="Admin">Admin (System Owner)</option>
-                                    <option value="Self">Self</option>
-                                    <option value="Spouse">Spouse</option>
-                                    <option value="Child">Child</option>
-                                    <option value="Parent">Parent</option>
-                                    <option value="Other">Other</option>
+                                <select id="newUserRelation" required class="w-full glass-input rounded-xl px-4 py-3 text-sm font-bold">
+                                    <option value="Admin">Admin (System Owner)</option><option value="Self">Self</option><option value="Spouse">Spouse</option><option value="Child">Child</option><option value="Parent">Parent</option><option value="Other">Other</option>
                                 </select>
                             </div>
                         </div>
@@ -122,163 +121,198 @@
         </div>
     </div>
 
-    <div id="apiModal" class="hidden no-print fixed inset-0 bg-black/50 backdrop-blur-md z-50 flex items-center justify-center p-4">
-        <div class="glass-panel rounded-3xl p-6 w-full max-w-md shadow-2xl">
-            <div class="flex justify-between items-center mb-5 border-b border-black/5 dark:border-white/5 pb-3">
-                <h3 class="text-lg font-extrabold text-sys-text-main"><i class="fa-solid fa-microchip text-dev-main"></i> Configure AI Engine</h3>
-                <button onclick="toggleApiModal()" class="text-sys-text-muted hover:text-sys-text-main"><i class="fa-solid fa-xmark text-xl"></i></button>
+    <div id="apiModal" class="hidden no-print fixed inset-0 bg-black/60 backdrop-blur-md z-50 flex items-center justify-center p-4">
+        <div class="glass-panel rounded-[2rem] p-6 w-full max-w-md shadow-2xl">
+            <div class="flex justify-between items-center mb-6 border-b border-black/5 dark:border-white/5 pb-4">
+                <h3 class="text-xl font-extrabold text-sys-text-main tracking-tight"><i class="fa-solid fa-microchip text-dev-main mr-2"></i> Configure AI Engine</h3>
+                <button onclick="toggleApiModal()" class="text-sys-text-muted hover:text-sys-text-main transition p-2 bg-white/10 rounded-full"><i class="fa-solid fa-xmark"></i></button>
             </div>
-            
-            <div class="space-y-4 mb-5">
+            <div class="space-y-5 mb-6">
                 <div>
                     <label class="block text-[10px] font-bold text-sys-text-muted uppercase tracking-widest mb-2">Neural Network Provider</label>
-                    <div class="flex gap-3">
-                        <label class="flex-1 glass-input rounded-xl p-3 flex items-center justify-center gap-2 cursor-pointer hover:bg-white/20 transition has-[:checked]:border-dev-main has-[:checked]:shadow-[inset_0_0_15px_rgba(79,70,229,0.1)]">
-                            <input type="radio" name="aiProvider" value="gemini" checked class="accent-dev-main"><span class="text-xs font-extrabold">Google Gemini</span>
+                    <div class="grid grid-cols-2 gap-3">
+                        <label class="glass-input rounded-2xl p-4 flex flex-col items-center justify-center gap-2 cursor-pointer hover:bg-white/20 transition has-[:checked]:border-dev-main has-[:checked]:shadow-[inset_0_0_20px_rgba(0,0,0,0.05)] text-center">
+                            <input type="radio" name="aiProvider" value="gemini" checked class="accent-dev-main hidden">
+                            <i class="fa-brands fa-google text-2xl mb-1"></i><span class="text-xs font-extrabold">Gemini</span>
                         </label>
-                        <label class="flex-1 glass-input rounded-xl p-3 flex items-center justify-center gap-2 cursor-pointer hover:bg-white/20 transition has-[:checked]:border-dev-main has-[:checked]:shadow-[inset_0_0_15px_rgba(79,70,229,0.1)]">
-                            <input type="radio" name="aiProvider" value="openai" class="accent-dev-main"><span class="text-xs font-extrabold">OpenAI GPT</span>
+                        <label class="glass-input rounded-2xl p-4 flex flex-col items-center justify-center gap-2 cursor-pointer hover:bg-white/20 transition has-[:checked]:border-dev-main has-[:checked]:shadow-[inset_0_0_20px_rgba(0,0,0,0.05)] text-center">
+                            <input type="radio" name="aiProvider" value="openai" class="accent-dev-main hidden">
+                            <i class="fa-solid fa-robot text-2xl mb-1"></i><span class="text-xs font-extrabold">OpenAI GPT</span>
                         </label>
                     </div>
                 </div>
                 <div>
-                    <label class="block text-[10px] font-bold text-sys-text-muted uppercase tracking-widest mb-2">Secret API Key</label>
-                    <input type="password" id="apiKeyInput" placeholder="sk-..." class="w-full glass-input rounded-xl px-4 py-3">
+                    <label class="block text-[10px] font-bold text-sys-text-muted uppercase tracking-widest mb-2 ml-1">Secret API Key</label>
+                    <input type="password" id="apiKeyInput" placeholder="sk-..." class="w-full glass-input rounded-xl px-5 py-4">
                 </div>
             </div>
-            <button onclick="saveApiKey()" class="w-full btn-premium font-bold py-3.5 rounded-xl">Save & Encrypt Key</button>
+            <button onclick="saveApiKey()" class="w-full btn-premium font-bold py-4 rounded-xl text-lg">Save & Encrypt Key</button>
         </div>
     </div>
 
-    <div class="max-w-7xl mx-auto p-3 sm:p-6 space-y-5 sm:space-y-6" id="printable-area">
+    <div class="max-w-7xl mx-auto p-4 sm:p-6 space-y-6 sm:space-y-8" id="printable-area">
         
-        <header class="glass-panel p-5 sm:p-6 rounded-3xl flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
-            <div class="flex items-center gap-3">
-                <span class="w-12 h-12 rounded-xl flex items-center justify-center text-dev-main text-xl" style="background: rgba(128,128,128,0.1);"><i class="fa-solid fa-wallet"></i></span>
-                <div>
-                    <h1 class="text-xl sm:text-2xl font-extrabold text-sys-text-main tracking-tight leading-none">Spending Coach</h1>
-                    <p class="text-sys-text-muted text-[10px] sm:text-xs mt-1 font-bold uppercase tracking-widest">Multi-Region Household Ledger</p>
-                </div>
+        <header class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 sm:gap-6 no-print">
+            <div>
+                <h1 class="text-3xl font-black text-sys-text-main tracking-tight leading-none flex items-center gap-3">
+                    <span class="w-10 h-10 rounded-xl flex items-center justify-center glass-panel border-none shadow-sm text-dev-main text-lg"><i class="fa-solid fa-wallet"></i></span> Dashboard
+                </h1>
+                <p id="headerGreeting" class="text-sys-text-muted text-xs mt-2 font-bold uppercase tracking-widest ml-14">Vault Locked</p>
             </div>
-            <div class="flex flex-wrap items-center gap-2 sm:gap-3 w-full md:w-auto no-print">
-                <button onclick="checkClipboardForSMS()" class="text-xs btn-premium font-bold px-3 sm:px-4 py-3 rounded-xl transition flex items-center justify-center gap-2 flex-1 md:flex-none shadow-sm"><i class="fa-solid fa-comment-sms"></i> Auto-Log</button>
-                <div class="flex items-center gap-2 glass-input px-3 py-2.5 rounded-xl flex-1 md:flex-none">
-                    <i class="fa-solid fa-earth-americas text-sys-text-muted"></i>
-                    <select id="currencySelector" onchange="changeCurrency()" class="bg-transparent text-xs text-sys-text-main font-bold focus:outline-none cursor-pointer appearance-none w-full">
-                        <option value="INR">INR (₹) India</option>
-                        <option value="USD">USD ($) USA</option>
-                        <option value="GBP">GBP (£) UK</option>
-                        <option value="EUR">EUR (€) Europe</option>
-                        <option value="CAD">CAD ($) Canada</option>
-                        <option value="AUD">AUD ($) Australia</option>
+            <div class="flex flex-wrap items-center gap-2 sm:gap-3 w-full md:w-auto">
+                <div class="flex items-center gap-2 glass-panel px-4 py-3 rounded-2xl flex-1 md:flex-none border-none shadow-sm">
+                    <i class="fa-solid fa-earth-americas text-sys-text-muted text-sm"></i>
+                    <select id="currencySelector" onchange="changeCurrency()" class="bg-transparent text-sm text-sys-text-main font-bold focus:outline-none cursor-pointer appearance-none w-full">
+                        <option value="INR">INR (₹) India</option><option value="USD">USD ($) USA</option><option value="GBP">GBP (£) UK</option><option value="EUR">EUR (€) Europe</option><option value="CAD">CAD ($) Canada</option><option value="AUD">AUD ($) Australia</option>
                     </select>
                 </div>
-                <div class="flex items-center gap-2 glass-input px-3 py-2.5 rounded-xl flex-1 md:flex-none hidden md:flex">
-                    <i class="fa-solid fa-palette text-sys-text-muted"></i>
-                    <select id="themeSelector" onchange="changeTheme()" class="bg-transparent text-xs text-sys-text-main font-bold focus:outline-none cursor-pointer appearance-none w-full">
-                        <option value="default">Glass Clean</option><option value="cyber">Cyber Mesh</option><option value="luxury">Obsidian</option><option value="vedic">Aura</option>
+                <div class="hidden md:flex items-center gap-2 glass-panel px-4 py-3 rounded-2xl flex-1 md:flex-none border-none shadow-sm">
+                    <i class="fa-solid fa-palette text-sys-text-muted text-sm"></i>
+                    <select id="themeSelector" onchange="changeTheme()" class="bg-transparent text-sm text-sys-text-main font-bold focus:outline-none cursor-pointer appearance-none w-full">
+                        <option value="default">VisionOS</option><option value="cyber">Cyber Mesh</option><option value="luxury">Obsidian</option><option value="vedic">Aura</option>
                     </select>
                 </div>
-                <button onclick="toggleUsersModal()" class="text-xs glass-panel hover:bg-white/10 text-sys-text-main font-bold px-3 sm:px-4 py-3 rounded-xl transition flex items-center justify-center gap-2 flex-1 md:flex-none shadow-sm"><i class="fa-solid fa-users"></i> Profiles</button>
-                <button onclick="lockVault()" class="text-xs bg-rose-500/10 border border-rose-500/20 hover:bg-rose-500/20 text-rose-500 font-bold px-3 sm:px-4 py-3 rounded-xl transition flex items-center justify-center gap-1.5 flex-1 md:flex-none shadow-sm"><i class="fa-solid fa-lock"></i> Lock</button>
-                <button onclick="toggleApiModal()" class="text-xs glass-panel hover:bg-white/10 text-sys-text-main font-bold px-3 sm:px-4 py-3 rounded-xl transition flex items-center justify-center gap-2 flex-1 md:flex-none shadow-sm"><i class="fa-solid fa-brain"></i> AI</button>
             </div>
         </header>
 
-        <div id="dashboardCards" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        <div id="dashboardCards" class="flex overflow-x-auto snap-x-mandatory custom-scrollbar gap-4 pb-2 -mx-4 px-4 sm:mx-0 sm:px-0 sm:grid sm:grid-cols-2 lg:grid-cols-4 sm:overflow-visible sm:snap-none">
             </div>
 
-        <section class="no-print glass-panel p-5 sm:p-6 rounded-3xl relative overflow-hidden flex flex-col md:flex-row gap-5 items-start shadow-md" style="border-left: 4px solid var(--dev-main);">
-            <div class="absolute top-0 right-0 p-6 text-dev-main opacity-5 pointer-events-none"><i class="fa-solid fa-microchip text-9xl"></i></div>
-            <div class="relative z-10 flex-1 space-y-3 w-full">
-                <div class="flex items-center gap-2"><span id="aiStatus" class="text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-widest glass-input text-dev-main flex items-center gap-1.5"><span class="w-1.5 h-1.5 rounded-full bg-amber-500 shadow-[0_0_8px_rgba(245,158,11,0.8)]"></span> API Disconnected</span></div>
-                <h3 class="text-lg font-extrabold text-sys-text-main flex items-center gap-2"><i class="fa-solid fa-sparkles text-dev-main"></i> Deep AI Financial Analysis</h3>
-                <div id="coachMessage" class="text-sm text-sys-text-muted leading-relaxed ai-response min-h-[60px]">Waiting for database unlock...</div>
-            </div>
-            <div class="relative z-10 w-full md:w-auto">
-                <button onclick="requestTrueAIAnalysis()" id="aiGenerateBtn" class="btn-premium font-bold py-3.5 px-6 rounded-2xl w-full flex items-center justify-center gap-2 whitespace-nowrap"><i class="fa-solid fa-bolt"></i> Generate Insight</button>
+        <section class="no-print glass-panel p-6 sm:p-8 rounded-[2rem] relative overflow-hidden shadow-xl" style="border-left: 6px solid var(--dev-main);">
+            <div class="absolute top-0 right-0 p-8 text-dev-main opacity-5 pointer-events-none"><i class="fa-solid fa-microchip text-9xl transform rotate-12"></i></div>
+            
+            <div class="relative z-10 flex flex-col xl:flex-row gap-8">
+                <div class="flex-1 space-y-4">
+                    <div class="flex justify-between items-center">
+                        <div class="flex items-center gap-2"><span id="aiStatus" class="text-[10px] font-bold px-3 py-1.5 rounded-full uppercase tracking-widest glass-input text-dev-main flex items-center gap-1.5 border-none shadow-inner"><span class="w-2 h-2 rounded-full bg-amber-500 shadow-[0_0_8px_rgba(245,158,11,0.8)]"></span> API Disconnected</span></div>
+                        <button onclick="toggleApiModal()" class="text-xs text-sys-text-muted hover:text-sys-text-main font-bold bg-black/5 dark:bg-white/5 px-3 py-1.5 rounded-lg"><i class="fa-solid fa-gear"></i> Config</button>
+                    </div>
+                    <h3 class="text-2xl font-black text-sys-text-main tracking-tight flex items-center gap-2">AI Financial Analysis</h3>
+                    <div id="coachMessage" class="text-sm text-sys-text-main leading-relaxed ai-response min-h-[100px] p-5 glass-input rounded-2xl border-none shadow-inner">Database must be unlocked to run telemetry.</div>
+                </div>
+                
+                <div class="w-full xl:w-[400px] flex flex-col gap-3 justify-end">
+                    <p class="text-[10px] font-bold text-sys-text-muted uppercase tracking-widest ml-1 mb-1">Execution Commands</p>
+                    <div class="grid grid-cols-2 gap-2">
+                        <button onclick="requestTrueAIAnalysis('standard')" class="glass-panel text-sys-text-main hover:bg-black/5 dark:hover:bg-white/5 font-bold py-3 px-3 rounded-xl text-xs flex items-center justify-center gap-2 transition shadow-sm border-none"><i class="fa-solid fa-magnifying-glass-chart text-dev-main"></i> Deep Audit</button>
+                        <button onclick="requestTrueAIAnalysis('savings')" class="glass-panel text-sys-text-main hover:bg-black/5 dark:hover:bg-white/5 font-bold py-3 px-3 rounded-xl text-xs flex items-center justify-center gap-2 transition shadow-sm border-none"><i class="fa-solid fa-piggy-bank text-emerald-500"></i> Savings Plan</button>
+                        <button onclick="requestTrueAIAnalysis('roast')" class="glass-panel text-sys-text-main hover:bg-rose-500/10 font-bold py-3 px-3 rounded-xl text-xs flex items-center justify-center gap-2 transition shadow-sm border border-rose-500/20 text-rose-600"><i class="fa-solid fa-fire"></i> Ruthless Roast</button>
+                        <button onclick="requestTrueAIAnalysis('invest')" class="glass-panel text-sys-text-main hover:bg-black/5 dark:hover:bg-white/5 font-bold py-3 px-3 rounded-xl text-xs flex items-center justify-center gap-2 transition shadow-sm border-none"><i class="fa-solid fa-arrow-trend-up text-blue-500"></i> Investment Edge</button>
+                    </div>
+                    <div class="flex gap-2 mt-2">
+                        <input type="text" id="customAiQuery" placeholder="Ask a custom question..." class="flex-1 glass-input rounded-xl px-4 py-3 text-sm border-none shadow-inner">
+                        <button onclick="requestTrueAIAnalysis('custom')" id="aiCustomBtn" class="btn-premium font-bold py-3 px-5 rounded-xl flex items-center justify-center shadow-md"><i class="fa-solid fa-paper-plane"></i></button>
+                    </div>
+                </div>
             </div>
         </section>
 
-        <div class="grid grid-cols-1 xl:grid-cols-12 gap-5 sm:gap-6">
-            
-            <form id="expenseForm" class="xl:col-span-4 glass-panel p-5 sm:p-6 rounded-3xl space-y-5 no-print shadow-md">
-                <h2 id="formTitle" class="text-lg font-extrabold text-sys-text-main mb-2 pb-3 border-b border-black/5 dark:border-white/5"><i class="fa-solid fa-plus-circle text-dev-main"></i> New Transaction</h2>
-                <input type="hidden" id="editingId" value="">
+        <div class="space-y-6 w-full">
+            <div class="glass-panel p-3 sm:p-5 rounded-3xl no-print shadow-sm flex flex-col md:flex-row gap-3">
+                <input type="text" id="searchKeyword" oninput="debounceSearch()" placeholder="Search transactions, stores, tags..." class="flex-1 glass-input rounded-2xl px-5 py-4 text-sm border-none shadow-inner">
+                <div class="flex gap-3">
+                    <select id="searchMonth" onchange="updateUI()" class="w-full md:w-48 glass-input rounded-2xl px-5 py-4 text-sm border-none shadow-inner">
+                        <option value="">All Months</option><option value="01">January</option><option value="02">February</option><option value="03">March</option><option value="04">April</option><option value="05">May</option><option value="06">June</option><option value="07">July</option><option value="08">August</option><option value="09">September</option><option value="10">October</option><option value="11">November</option><option value="12">December</option>
+                    </select>
+                    <input type="date" id="searchDate" onchange="updateUI()" class="w-full md:w-auto glass-input rounded-2xl px-5 py-4 text-sm border-none shadow-inner hidden sm:block">
+                </div>
+            </div>
 
-                <div id="dynamicSpendersContainer" class="grid grid-cols-2 gap-2"></div>
-                <p id="noUsersWarning" class="hidden text-xs text-rose-500 font-bold bg-rose-500/10 border border-rose-500/20 p-3 rounded-xl backdrop-blur-md"><i class="fa-solid fa-triangle-exclamation"></i> Please add a Profile first using the "Profiles" button.</p>
-
-                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    <div class="sm:col-span-2"><label class="block text-[10px] font-bold text-sys-text-muted uppercase tracking-widest mb-1.5 ml-1">Item / Service</label><input type="text" id="item" required placeholder="Label Description" class="w-full glass-input rounded-xl px-3.5 py-3"></div>
-                    <div><label class="block text-[10px] font-bold text-sys-text-muted uppercase tracking-widest mb-1.5 ml-1">Amount</label><input type="number" id="price" required min="1" step="0.01" placeholder="0.00" class="w-full glass-input rounded-xl px-3.5 py-3 font-bold"></div>
-                    <div>
-                        <label class="block text-[10px] font-bold text-sys-text-muted uppercase tracking-widest mb-1.5 ml-1">Category</label>
-                        <select id="category" class="w-full glass-input rounded-xl px-3.5 py-3">
-                            <option>Food & Dining</option><option>Groceries & Daily Needs</option><option>Rent & Housing</option><option>Utilities & Bills</option>
-                            <option>Loans & EMI</option><option>Education & Fees</option><option>Medical & Hospital</option><option>Car Maintenance & Repair</option>
-                            <option>Bike/Two-Wheeler Maintenance</option><option>Travel & Fuel</option><option>Trip & Vacation</option><option>Shopping & Luxury</option>
-                            <option>Event: Birthday</option><option>Event: Anniversary</option><option>Lent Money / Debt</option><option>Investments</option><option>Entertainment</option>
-                        </select>
+            <div class="glass-panel p-4 sm:p-6 rounded-[2rem] flex flex-col h-[600px] sm:h-[700px] ledger-container w-full shadow-xl">
+                <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-6 gap-4">
+                    <h2 class="text-xl font-extrabold text-sys-text-main flex items-center gap-2 tracking-tight"><i class="fa-solid fa-server text-sys-text-muted opacity-50"></i> Master Ledger</h2>
+                    <div class="flex flex-wrap gap-2 no-print">
+                        <input type="file" id="importDatabaseFile" class="hidden" accept=".json" onchange="importDatabase(event)">
+                        <button onclick="document.getElementById('importDatabaseFile').click()" class="text-xs glass-panel hover:bg-black/5 dark:hover:bg-white/5 text-sys-text-main font-bold px-4 py-2.5 rounded-xl transition flex items-center gap-1.5 border-none shadow-sm"><i class="fa-solid fa-cloud-arrow-up text-dev-main"></i> Restore</button>
+                        <button onclick="exportDatabase()" class="text-xs glass-panel hover:bg-black/5 dark:hover:bg-white/5 text-sys-text-main font-bold px-4 py-2.5 rounded-xl transition flex items-center gap-1.5 border-none shadow-sm"><i class="fa-solid fa-cloud-arrow-down text-dev-main"></i> Backup</button>
                     </div>
                 </div>
 
-                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    <div><label class="block text-[10px] font-bold text-sys-text-muted uppercase tracking-widest mb-1.5 ml-1">Store/Brand</label><input type="text" id="store" placeholder="Provider" class="w-full glass-input rounded-xl px-3.5 py-3"></div>
-                    <div><label class="block text-[10px] font-bold text-sys-text-muted uppercase tracking-widest mb-1.5 ml-1">Location</label><input type="text" id="location" placeholder="Site" class="w-full glass-input rounded-xl px-3.5 py-3"></div>
-                    <div><label class="block text-[10px] font-bold text-sys-text-muted uppercase tracking-widest mb-1.5 ml-1">Date</label><input type="date" id="date" required class="w-full glass-input rounded-xl px-3.5 py-3"></div>
-                    <div><label class="block text-[10px] font-bold text-sys-text-muted uppercase tracking-widest mb-1.5 ml-1">Time</label><input type="time" id="time" required class="w-full glass-input rounded-xl px-3.5 py-3"></div>
-                </div>
-
-                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    <div class="sm:col-span-2"><label class="block text-[10px] font-bold text-sys-text-muted uppercase tracking-widest mb-1.5 ml-1">Payment Type</label><select id="paymentMethod" class="w-full glass-input rounded-xl px-3.5 py-3"><option>Mobile App / UPI</option><option>Credit Card</option><option>Debit Card</option><option>Cash</option><option>Bank Transfer</option></select></div>
-                    <div class="sm:col-span-2"><textarea id="notes" placeholder="Optional notes, tags, or metadata..." class="w-full glass-input rounded-xl px-3.5 py-3 h-20 custom-scrollbar"></textarea></div>
-                </div>
-
-                <div class="flex gap-3 pt-2">
-                    <button type="submit" id="submitBtn" class="flex-1 btn-premium font-bold py-3.5 px-4 rounded-xl flex justify-center items-center gap-2 shadow-lg"><i class="fa-solid fa-save"></i> Save Transaction</button>
-                    <button type="button" id="cancelEditBtn" onclick="resetForm()" class="hidden glass-panel hover:bg-white/20 text-sys-text-main font-bold py-3.5 px-5 rounded-xl transition"><i class="fa-solid fa-xmark"></i></button>
-                </div>
-            </form>
-
-            <div class="xl:col-span-8 space-y-5 sm:space-y-6 w-full">
-                
-                <div class="glass-panel p-5 rounded-3xl no-print shadow-sm">
-                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
-                        <div><input type="text" id="searchKeyword" oninput="debounceSearch()" placeholder="Live Context Search..." class="w-full glass-input rounded-xl px-4 py-3"></div>
-                        <div>
-                            <select id="searchMonth" onchange="updateUI()" class="w-full glass-input rounded-xl px-4 py-3">
-                                <option value="">All Chronological Months</option><option value="01">January</option><option value="02">February</option><option value="03">March</option><option value="04">April</option><option value="05">May</option><option value="06">June</option><option value="07">July</option><option value="08">August</option><option value="09">September</option><option value="10">October</option><option value="11">November</option><option value="12">December</option>
-                            </select>
-                        </div>
-                        <div><input type="date" id="searchDate" onchange="updateUI()" class="w-full glass-input rounded-xl px-4 py-3"></div>
-                    </div>
-                </div>
-
-                <div class="glass-panel p-4 sm:p-6 rounded-3xl flex flex-col h-[650px] ledger-container w-full shadow-md">
-                    <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-5 gap-4">
-                        <h2 class="text-lg font-extrabold text-sys-text-main flex items-center gap-2"><i class="fa-solid fa-server text-sys-text-muted"></i> Vault Ledger Database</h2>
-                        <div class="flex flex-wrap gap-2 no-print">
-                            <input type="file" id="importDatabaseFile" class="hidden" accept=".json" onchange="importDatabase(event)">
-                            <button onclick="document.getElementById('importDatabaseFile').click()" class="text-xs glass-panel hover:bg-white/20 text-sys-text-main font-bold px-3 py-2 rounded-lg transition flex items-center gap-1.5"><i class="fa-solid fa-cloud-arrow-up text-dev-main"></i> Restore Config</button>
-                            <button onclick="exportDatabase()" class="text-xs glass-panel hover:bg-white/20 text-sys-text-main font-bold px-3 py-2 rounded-lg transition flex items-center gap-1.5"><i class="fa-solid fa-cloud-arrow-down text-dev-main"></i> Download Backup</button>
-                        </div>
-                    </div>
-
-                    <div class="overflow-x-auto overflow-y-auto flex-1 custom-scrollbar glass-input rounded-2xl border-none w-full bg-black/5 dark:bg-white/5">
-                        <table class="w-full text-left border-collapse min-w-[650px]">
-                            <thead>
-                                <tr class="text-[10px] font-bold uppercase tracking-widest text-sys-text-muted sticky top-0 z-10 shadow-sm" style="background: rgba(128,128,128,0.15); backdrop-filter: blur(16px);">
-                                    <th class="py-4 px-5 whitespace-nowrap">Identity</th><th class="py-4 px-4">Transaction Scope</th><th class="py-4 px-4">Context Vectors</th><th class="py-4 px-5 text-right">Settlement</th><th class="py-4 px-3 no-print"></th>
-                                </tr>
-                            </thead>
-                            <tbody id="ledgerBody" class="divide-y divide-black/5 dark:divide-white/5 text-sm"></tbody>
-                        </table>
-                    </div>
+                <div class="overflow-x-auto overflow-y-auto flex-1 custom-scrollbar glass-input rounded-3xl border-none w-full bg-black/5 dark:bg-white/5 shadow-inner">
+                    <table class="w-full text-left border-collapse min-w-[700px]">
+                        <thead>
+                            <tr class="text-[10px] font-bold uppercase tracking-widest text-sys-text-muted sticky top-0 z-10 shadow-sm" style="background: rgba(128,128,128,0.1); backdrop-filter: blur(20px);">
+                                <th class="py-5 px-6 whitespace-nowrap">Identity</th><th class="py-5 px-5">Transaction Scope</th><th class="py-5 px-5">Context Vectors</th><th class="py-5 px-6 text-right">Settlement</th><th class="py-5 px-4 no-print text-center">Docs</th><th class="py-5 px-4 no-print"></th>
+                            </tr>
+                        </thead>
+                        <tbody id="ledgerBody" class="divide-y divide-black/5 dark:divide-white/5 text-sm"></tbody>
+                    </table>
                 </div>
             </div>
         </div>
     </div>
+
+    <div id="transactionModal" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 hidden flex-col justify-end no-print">
+        <div class="flex-1 w-full" onclick="closeTransactionModal()"></div>
+        
+        <div class="glass-panel w-full max-w-3xl mx-auto rounded-t-[2rem] border-b-0 shadow-[0_-10px_40px_rgba(0,0,0,0.2)] bottom-sheet flex flex-col max-h-[90vh]">
+            <div class="p-4 flex justify-center border-b border-black/5 dark:border-white/5 shrink-0"><div class="w-12 h-1.5 bg-sys-text-muted/30 rounded-full"></div></div>
+            
+            <div class="p-6 overflow-y-auto custom-scrollbar">
+                <form id="expenseForm" class="space-y-6">
+                    <div class="flex justify-between items-center mb-2">
+                        <h2 id="formTitle" class="text-2xl font-black text-sys-text-main tracking-tight">New Transaction</h2>
+                        <button type="button" onclick="closeTransactionModal()" class="text-sys-text-muted hover:text-sys-text-main bg-black/5 dark:bg-white/5 w-8 h-8 rounded-full flex items-center justify-center transition"><i class="fa-solid fa-xmark"></i></button>
+                    </div>
+                    <input type="hidden" id="editingId" value="">
+
+                    <div id="dynamicSpendersContainer" class="grid grid-cols-2 sm:grid-cols-4 gap-2"></div>
+                    <p id="noUsersWarning" class="hidden text-xs text-rose-500 font-bold bg-rose-500/10 border border-rose-500/20 p-3 rounded-xl"><i class="fa-solid fa-triangle-exclamation"></i> Add a Profile first via Dashboard.</p>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                        <div class="sm:col-span-2"><label class="block text-[10px] font-bold text-sys-text-muted uppercase tracking-widest mb-2 ml-1">Item / Service</label><input type="text" id="item" required placeholder="What did you pay for?" class="w-full glass-input rounded-2xl px-5 py-4 shadow-inner border-none bg-black/5 dark:bg-white/5"></div>
+                        <div><label class="block text-[10px] font-bold text-sys-text-muted uppercase tracking-widest mb-2 ml-1">Amount</label><input type="number" id="price" required min="1" step="0.01" placeholder="0.00" class="w-full glass-input rounded-2xl px-5 py-4 font-black text-lg text-dev-main shadow-inner border-none bg-black/5 dark:bg-white/5"></div>
+                        <div>
+                            <label class="block text-[10px] font-bold text-sys-text-muted uppercase tracking-widest mb-2 ml-1">Category</label>
+                            <select id="category" class="w-full glass-input rounded-2xl px-5 py-4 shadow-inner border-none bg-black/5 dark:bg-white/5">
+                                <option>Food & Dining</option><option>Groceries & Daily Needs</option><option>Rent & Housing</option><option>Utilities & Bills</option><option>Loans & EMI</option><option>Education & Fees</option><option>Medical & Hospital</option><option>Car Maintenance & Repair</option><option>Bike/Two-Wheeler Maintenance</option><option>Travel & Fuel</option><option>Trip & Vacation</option><option>Shopping & Luxury</option><option>Event: Birthday</option><option>Event: Anniversary</option><option>Lent Money / Debt</option><option>Investments</option><option>Entertainment</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-2 gap-5">
+                        <div class="col-span-2 sm:col-span-1"><label class="block text-[10px] font-bold text-sys-text-muted uppercase tracking-widest mb-2 ml-1">Store/Provider</label><input type="text" id="store" placeholder="e.g. Amazon, Zomato" class="w-full glass-input rounded-2xl px-5 py-4 shadow-inner border-none bg-black/5 dark:bg-white/5"></div>
+                        <div class="col-span-2 sm:col-span-1"><label class="block text-[10px] font-bold text-sys-text-muted uppercase tracking-widest mb-2 ml-1">Location</label><input type="text" id="location" placeholder="e.g. Online, Pune" class="w-full glass-input rounded-2xl px-5 py-4 shadow-inner border-none bg-black/5 dark:bg-white/5"></div>
+                        <div><label class="block text-[10px] font-bold text-sys-text-muted uppercase tracking-widest mb-2 ml-1">Date</label><input type="date" id="date" required class="w-full glass-input rounded-2xl px-5 py-4 shadow-inner border-none bg-black/5 dark:bg-white/5 text-sm"></div>
+                        <div><label class="block text-[10px] font-bold text-sys-text-muted uppercase tracking-widest mb-2 ml-1">Time</label><input type="time" id="time" required class="w-full glass-input rounded-2xl px-5 py-4 shadow-inner border-none bg-black/5 dark:bg-white/5 text-sm"></div>
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                        <div class="sm:col-span-2"><label class="block text-[10px] font-bold text-sys-text-muted uppercase tracking-widest mb-2 ml-1">Payment Method</label><select id="paymentMethod" class="w-full glass-input rounded-2xl px-5 py-4 shadow-inner border-none bg-black/5 dark:bg-white/5"><option>Mobile App / UPI</option><option>Credit Card</option><option>Debit Card</option><option>Cash</option><option>Bank Transfer</option></select></div>
+                        <div class="sm:col-span-2"><textarea id="notes" placeholder="Optional notes, tags, or contextual metadata..." class="w-full glass-input rounded-2xl px-5 py-4 h-24 custom-scrollbar shadow-inner border-none bg-black/5 dark:bg-white/5"></textarea></div>
+                    </div>
+
+                    <div class="flex gap-3 pt-4 pb-8 sm:pb-0">
+                        <button type="submit" id="submitBtn" class="flex-1 btn-premium font-bold py-4 px-6 rounded-2xl flex justify-center items-center gap-2 shadow-xl text-lg"><i class="fa-solid fa-save"></i> Save to Vault</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <nav class="fixed bottom-0 w-full glass-panel border-b-0 border-x-0 rounded-t-3xl pb-safe z-40 no-print shadow-[0_-10px_40px_rgba(0,0,0,0.1)] block sm:hidden">
+        <div class="flex justify-around items-center px-2 py-2">
+            <button onclick="window.scrollTo({top:0, behavior:'smooth'})" class="flex flex-col items-center justify-center p-3 text-sys-text-muted hover:text-dev-main transition w-16">
+                <i class="fa-solid fa-house text-xl mb-1"></i><span class="text-[9px] font-bold tracking-widest uppercase">Home</span>
+            </button>
+            <button onclick="checkClipboardForSMS()" class="flex flex-col items-center justify-center p-3 text-sys-text-muted hover:text-dev-main transition w-16">
+                <i class="fa-solid fa-comment-sms text-xl mb-1"></i><span class="text-[9px] font-bold tracking-widest uppercase">SMS</span>
+            </button>
+            <button onclick="openTransactionModal()" class="btn-premium w-14 h-14 rounded-full flex items-center justify-center text-2xl shadow-xl transform -translate-y-4 border-4 border-white dark:border-[#1a1a1a]">
+                <i class="fa-solid fa-plus"></i>
+            </button>
+            <button onclick="toggleUsersModal()" class="flex flex-col items-center justify-center p-3 text-sys-text-muted hover:text-dev-main transition w-16">
+                <i class="fa-solid fa-users text-xl mb-1"></i><span class="text-[9px] font-bold tracking-widest uppercase">Users</span>
+            </button>
+            <button onclick="lockVault()" class="flex flex-col items-center justify-center p-3 text-rose-500 hover:text-rose-600 transition w-16">
+                <i class="fa-solid fa-lock text-xl mb-1"></i><span class="text-[9px] font-bold tracking-widest uppercase">Lock</span>
+            </button>
+        </div>
+    </nav>
+    
+    <button onclick="openTransactionModal()" class="hidden sm:flex fixed bottom-8 right-8 btn-premium w-16 h-16 rounded-full items-center justify-center text-2xl shadow-2xl z-40 hover:scale-105 transition-transform no-print">
+        <i class="fa-solid fa-plus"></i>
+    </button>
 
     <script>
         // ARCHITECTURE STATE
@@ -314,7 +348,7 @@
             return new Intl.NumberFormat(locales[code], { style: 'currency', currency: code }).format(amount);
         }
 
-        // --- INSTANT DECRYPTION PIPELINE (FIXED IOS BUG) ---
+        // --- INSTANT DECRYPTION PIPELINE ---
         function triggerDecryptionPipeline() {
             const passwordInput = document.getElementById('masterPasswordField').value;
             if (!passwordInput) return alert("System halt: Passphrase required.");
@@ -331,7 +365,6 @@
                 
                 const hint = document.getElementById('passwordHintField').value;
                 if(hint) localStorage.setItem('coach_password_hint', hint);
-
                 unlockUiGateway();
             } else {
                 try {
@@ -340,7 +373,6 @@
                     if (!plaintextDataString) throw new Error("Checksum mismatch");
 
                     const parsedData = JSON.parse(plaintextDataString);
-                    
                     if (Array.isArray(parsedData)) {
                         database = { expenses: parsedData, users: [] };
                         const existingSpenders = [...new Set(parsedData.map(e => e.spender))];
@@ -375,11 +407,16 @@
 
         function unlockUiGateway() {
             document.getElementById('securityShieldGateway').classList.add('hidden');
-            
             const adminUser = database.users.find(u => u.relation.toLowerCase() === 'admin');
-            const coachDiv = document.getElementById('coachMessage');
-            if (adminUser) { coachDiv.innerHTML = `<span class="text-dev-main font-extrabold"><i class="fa-solid fa-crown"></i> Welcome back, System Admin ${adminUser.name}.</span> Vault fully decrypted and diagnostic telemetry is green. Ready for operations.`; } 
-            else { coachDiv.innerText = "Vault authenticated. Running system baseline diagnostics..."; }
+            const headerGreeting = document.getElementById('headerGreeting');
+            
+            if (adminUser) { 
+                headerGreeting.innerHTML = `<i class="fa-solid fa-crown text-dev-main mr-1"></i> Admin Node: ${adminUser.name}`;
+                document.getElementById('coachMessage').innerHTML = `Vault fully decrypted. Ready for financial telemetry.`; 
+            } else { 
+                headerGreeting.innerHTML = `<i class="fa-solid fa-lock-open text-emerald-500 mr-1"></i> Vault Active`;
+                document.getElementById('coachMessage').innerText = "Vault authenticated. Awaiting commands."; 
+            }
         }
 
         function lockVault() {
@@ -394,6 +431,22 @@
             document.getElementById('ledgerBody').innerHTML = '';
             document.getElementById('dynamicSpendersContainer').innerHTML = '';
             document.getElementById('dashboardCards').innerHTML = '';
+            document.getElementById('headerGreeting').innerText = "Vault Locked";
+        }
+
+        // --- UI INTERACTION LOGIC (BOTTOM SHEETS) ---
+        function openTransactionModal() {
+            const m = document.getElementById('transactionModal');
+            m.classList.remove('hidden'); m.style.display = 'flex';
+            // Slight delay to allow display:flex to apply before adding active class for animation
+            setTimeout(() => { m.querySelector('.bottom-sheet').classList.add('active'); }, 10);
+            renderFormSpenders();
+        }
+
+        function closeTransactionModal() {
+            const m = document.getElementById('transactionModal');
+            m.querySelector('.bottom-sheet').classList.remove('active');
+            setTimeout(() => { m.classList.add('hidden'); m.style.display = ''; resetForm(); }, 400); // Wait for transition
         }
 
         // --- ID GENERATOR & USERS ---
@@ -406,16 +459,16 @@
 
         function renderUserManagementList() {
             const list = document.getElementById('activeUsersList');
-            if(database.users.length === 0) { list.innerHTML = `<p class="col-span-1 sm:col-span-2 text-sm text-sys-text-muted">No profiles active. Add one below.</p>`; return; }
+            if(database.users.length === 0) { list.innerHTML = `<p class="text-sm text-sys-text-muted">No profiles active. Add one below.</p>`; return; }
             list.innerHTML = database.users.map(u => {
                 const isAdmin = u.relation.toLowerCase() === 'admin';
                 return `
-                <div class="glass-input rounded-xl p-3 flex justify-between items-center border-none bg-white/5">
+                <div class="glass-input rounded-2xl p-4 flex justify-between items-center border-none bg-black/5 dark:bg-white/5 shadow-inner">
                     <div>
-                        <div class="font-extrabold text-sys-text-main text-sm flex items-center gap-1.5">${u.name} <span class="text-[9px] uppercase tracking-wider ${isAdmin ? 'bg-dev-main text-dev-btn-text' : 'glass-panel text-sys-text-muted'} px-2 py-0.5 rounded-full border-none shadow-sm">${isAdmin ? '<i class="fa-solid fa-crown mr-0.5"></i> ' : ''}${u.relation}</span></div>
-                        <div class="text-[10px] text-sys-text-muted mt-1 font-bold tracking-widest">${u.id || 'LEGACY-ID'} • ${u.age} yrs • ${u.gender}</div>
+                        <div class="font-black text-sys-text-main text-base flex items-center gap-2">${u.name} <span class="text-[9px] uppercase tracking-widest ${isAdmin ? 'bg-dev-main text-dev-btn-text' : 'glass-panel text-sys-text-muted'} px-2.5 py-1 rounded-full border-none shadow-sm">${isAdmin ? '<i class="fa-solid fa-crown mr-0.5"></i> ' : ''}${u.relation}</span></div>
+                        <div class="text-[11px] text-sys-text-muted mt-1.5 font-bold tracking-widest">${u.id || 'LEGACY'} • ${u.age} yrs • ${u.gender}</div>
                     </div>
-                    <button onclick="deleteUser('${u.id}')" class="text-rose-500 hover:bg-rose-500/20 p-2.5 rounded-lg transition"><i class="fa-solid fa-trash"></i></button>
+                    <button onclick="deleteUser('${u.id}')" class="text-rose-500 hover:bg-rose-500/10 p-3 rounded-xl transition border border-rose-500/20"><i class="fa-solid fa-trash"></i></button>
                 </div>`}).join('');
         }
 
@@ -423,14 +476,12 @@
             e.preventDefault();
             const name = document.getElementById('newUserName').value.trim();
             if(database.users.some(u => u.name.toLowerCase() === name.toLowerCase())) return alert("Profile exists.");
-            
             database.users.push({ id: generateUserId(), name: name, age: document.getElementById('newUserAge').value, gender: document.getElementById('newUserGender').value, relation: document.getElementById('newUserRelation').value });
             saveEncryptedDatabase(); e.target.reset(); renderUserManagementList(); updateUI(); unlockUiGateway(); 
         });
 
         function deleteUser(id) {
-            const user = database.users.find(u => String(u.id) === String(id));
-            if(!user) return;
+            const user = database.users.find(u => String(u.id) === String(id)); if(!user) return;
             if(database.expenses.some(e => e.spender === user.name)) return alert(`Cannot delete ${user.name}. Active transaction records exist.`);
             if(confirm(`Remove profile: ${user.name}?`)) { database.users = database.users.filter(u => String(u.id) !== String(id)); saveEncryptedDatabase(); renderUserManagementList(); updateUI(); }
         }
@@ -442,7 +493,6 @@
             a.download = `SpendingCoach_Vault_${new Date().toISOString().split('T')[0]}.json`;
             document.body.appendChild(a); a.click(); document.body.removeChild(a);
         }
-
         function importDatabase(event) {
             const file = event.target.files[0]; if (!file) return;
             const reader = new FileReader();
@@ -462,40 +512,27 @@
 
         // --- API CONFIG MULTI-MODEL ---
         function getApiConfig() { 
-            const encryptedKey = localStorage.getItem('coach_api_key_encrypted');
-            const provider = localStorage.getItem('coach_ai_provider') || 'gemini';
+            const encryptedKey = localStorage.getItem('coach_api_key_encrypted'); const provider = localStorage.getItem('coach_ai_provider') || 'gemini';
             if(!encryptedKey || !vaultMasterKey) return null;
             try { return { key: CryptoJS.AES.decrypt(encryptedKey, vaultMasterKey).toString(CryptoJS.enc.Utf8), provider }; } catch(e) { return null; }
         }
-        
         function saveApiKey() { 
-            const val = document.getElementById('apiKeyInput').value.trim(); 
-            const provider = document.querySelector('input[name="aiProvider"]:checked').value;
-            
-            if(val && vaultMasterKey) { 
-                localStorage.setItem('coach_api_key_encrypted', CryptoJS.AES.encrypt(val, vaultMasterKey).toString()); 
-                localStorage.setItem('coach_ai_provider', provider);
-            } else { 
-                localStorage.removeItem('coach_api_key_encrypted'); 
-            }
+            const val = document.getElementById('apiKeyInput').value.trim(); const provider = document.querySelector('input[name="aiProvider"]:checked').value;
+            if(val && vaultMasterKey) { localStorage.setItem('coach_api_key_encrypted', CryptoJS.AES.encrypt(val, vaultMasterKey).toString()); localStorage.setItem('coach_ai_provider', provider); } 
+            else { localStorage.removeItem('coach_api_key_encrypted'); }
             updateApiStatus(); toggleApiModal(); 
         }
-
         function toggleApiModal() { 
             const m = document.getElementById('apiModal'); m.classList.toggle('hidden'); 
             if(!m.classList.contains('hidden')) {
                 const config = getApiConfig();
-                if(config) {
-                    document.getElementById('apiKeyInput').value = config.key;
-                    document.querySelector(`input[name="aiProvider"][value="${config.provider}"]`).checked = true;
-                }
+                if(config) { document.getElementById('apiKeyInput').value = config.key; document.querySelector(`input[name="aiProvider"][value="${config.provider}"]`).checked = true; }
             } 
         }
-
         function updateApiStatus() { 
             const config = getApiConfig();
-            const providerLabel = config ? (config.provider === 'openai' ? 'ChatGPT Secure' : 'Gemini Secure') : 'Local Mode';
-            document.getElementById('aiStatus').innerHTML = config ? `<span class="w-1.5 h-1.5 rounded-full bg-emerald-500 shadow-[0_0_8px_rgba(16,185,129,0.8)] animate-pulse"></span> ${providerLabel}` : `<span class="w-1.5 h-1.5 rounded-full bg-amber-500 shadow-[0_0_8px_rgba(245,158,11,0.8)]"></span> API Disconnected`; 
+            const providerLabel = config ? (config.provider === 'openai' ? 'ChatGPT Secure' : 'Gemini Secure') : 'API Disconnected';
+            document.getElementById('aiStatus').innerHTML = config ? `<span class="w-2 h-2 rounded-full bg-emerald-500 shadow-[0_0_8px_rgba(16,185,129,0.8)] animate-pulse"></span> ${providerLabel}` : `<span class="w-2 h-2 rounded-full bg-amber-500 shadow-[0_0_8px_rgba(245,158,11,0.8)]"></span> ${providerLabel}`; 
         }
 
         // --- PIPELINE CONTROLS ---
@@ -518,25 +555,27 @@
             if(editId) { const idx = database.expenses.findIndex(e => String(e.id) === String(expData.id)); if(idx !== -1) database.expenses[idx] = expData; } 
             else { database.expenses.unshift(expData); }
             
-            saveEncryptedDatabase(); updateUI(); resetForm();
+            saveEncryptedDatabase(); updateUI(); closeTransactionModal();
         });
 
         function editExpense(id) {
             const exp = database.expenses.find(e => String(e.id) === String(id));
             document.getElementById('editingId').value = exp.id;
+            
+            openTransactionModal(); // Open Bottom Sheet
             renderFormSpenders(exp.spender);
+            
             document.getElementById('item').value = exp.item; document.getElementById('price').value = exp.price; document.getElementById('category').value = exp.category; document.getElementById('store').value = exp.store !== '-' ? exp.store : '';
             document.getElementById('location').value = exp.location !== '-' ? exp.location : ''; document.getElementById('date').value = exp.date; document.getElementById('time').value = exp.time; document.getElementById('paymentMethod').value = exp.paymentMethod; document.getElementById('notes').value = exp.notes;
             
-            document.getElementById('formTitle').innerHTML = '<i class="fa-solid fa-edit text-dev-main"></i> Edit Transaction';
-            document.getElementById('submitBtn').innerHTML = '<i class="fa-solid fa-arrows-rotate"></i> Update Record';
-            document.getElementById('cancelEditBtn').classList.remove('hidden'); window.scrollTo({ top: 0, behavior: 'smooth' });
+            document.getElementById('formTitle').innerText = 'Edit Transaction';
+            document.getElementById('submitBtn').innerHTML = '<i class="fa-solid fa-arrows-rotate"></i> Update Vault Record';
         }
 
         function resetForm() {
             document.getElementById('editingId').value = '';
-            document.getElementById('formTitle').innerHTML = '<i class="fa-solid fa-plus-circle text-dev-main"></i> New Transaction';
-            document.getElementById('submitBtn').innerHTML = '<i class="fa-solid fa-save"></i> Save Transaction'; document.getElementById('cancelEditBtn').classList.add('hidden');
+            document.getElementById('formTitle').innerText = 'New Transaction';
+            document.getElementById('submitBtn').innerHTML = '<i class="fa-solid fa-save"></i> Save to Vault';
             form.reset(); renderFormSpenders(); 
             document.getElementById('date').value = new Date().toISOString().split('T')[0]; document.getElementById('time').value = `${String(new Date().getHours()).padStart(2, '0')}:${String(new Date().getMinutes()).padStart(2, '0')}`;
         }
@@ -551,8 +590,8 @@
 
             const htmlArr = database.users.map((u, i) => {
                 const isChecked = preSelectedName ? (u.name === preSelectedName) : (i === 0);
-                return `<label class="glass-input rounded-xl p-3 flex items-center justify-center gap-2 cursor-pointer hover:bg-white/20 transition has-[:checked]:border-dev-main has-[:checked]:shadow-[inset_0_0_15px_rgba(79,70,229,0.1)]">
-                    <input type="radio" name="spender" value="${u.name}" ${isChecked ? 'checked' : ''} class="accent-dev-main"><span class="text-sm font-extrabold text-sys-text-main">${u.name}</span>
+                return `<label class="glass-input rounded-2xl p-4 flex items-center justify-center gap-2 cursor-pointer hover:bg-white/20 transition has-[:checked]:border-dev-main has-[:checked]:bg-black/5 dark:has-[:checked]:bg-white/10 has-[:checked]:shadow-[inset_0_0_20px_rgba(0,0,0,0.05)] border-none shadow-inner bg-black/5 dark:bg-white/5">
+                    <input type="radio" name="spender" value="${u.name}" ${isChecked ? 'checked' : ''} class="accent-dev-main hidden"><span class="text-sm font-black text-sys-text-main">${u.name}</span>
                 </label>`;
             });
             container.innerHTML = htmlArr.join('');
@@ -576,7 +615,7 @@
 
             const tbody = document.getElementById('ledgerBody');
             if (filtered.length === 0) {
-                tbody.innerHTML = `<tr><td colspan="5" class="text-center py-16 text-sys-text-muted font-bold">No vault records found matching active filters.</td></tr>`;
+                tbody.innerHTML = `<tr><td colspan="5" class="text-center py-20 text-sys-text-muted font-bold tracking-widest uppercase text-[10px]">No vault records match current telemetry filters.</td></tr>`;
             } else {
                 let htmlBuffer = [];
                 filtered.forEach(exp => {
@@ -586,19 +625,19 @@
 
                     htmlBuffer.push(`
                         <tr class="hover:bg-black/5 dark:hover:bg-white/5 transition-colors group border-b border-black/5 dark:border-white/5">
-                            <td class="py-4 px-5 whitespace-nowrap"><span class="px-3 py-1.5 rounded-full text-xs font-extrabold glass-panel shadow-sm">${exp.spender}</span></td>
-                            <td class="py-4 px-4 min-w-[180px]">
-                                <div class="font-extrabold text-sys-text-main">${exp.item}</div>
-                                <div class="text-[11px] text-sys-text-muted mt-1 flex gap-2 font-bold tracking-wider"><span><i class="fa-regular fa-calendar"></i> ${formattedDate}</span><span><i class="fa-regular fa-clock"></i> ${exp.time}</span><span class="text-dev-main whitespace-nowrap">• ${exp.category}</span></div>
+                            <td class="py-5 px-6 whitespace-nowrap"><span class="px-3 py-1.5 rounded-full text-[10px] font-black uppercase tracking-widest glass-panel shadow-sm border-none bg-black/5 dark:bg-white/5">${exp.spender}</span></td>
+                            <td class="py-5 px-5 min-w-[200px]">
+                                <div class="font-black text-sys-text-main text-base tracking-tight">${exp.item}</div>
+                                <div class="text-[10px] text-sys-text-muted mt-1 flex gap-2 font-bold tracking-widest uppercase"><span><i class="fa-regular fa-calendar"></i> ${formattedDate}</span><span><i class="fa-regular fa-clock"></i> ${exp.time}</span><span class="text-dev-main whitespace-nowrap opacity-80">• ${exp.category}</span></div>
                             </td>
-                            <td class="py-4 px-4 min-w-[150px]">
-                                <div class="text-xs text-sys-text-main font-bold"><i class="fa-solid fa-shop text-sys-text-muted w-4"></i> ${exp.store}</div>
-                                <div class="text-[11px] text-sys-text-muted mt-0.5"><i class="fa-solid fa-location-dot text-sys-text-muted w-4"></i> ${exp.location}</div>
+                            <td class="py-5 px-5 min-w-[150px]">
+                                <div class="text-xs text-sys-text-main font-bold flex items-center gap-1.5"><i class="fa-solid fa-shop text-sys-text-muted w-4 opacity-50"></i> ${exp.store}</div>
+                                <div class="text-[10px] text-sys-text-muted mt-1 font-bold tracking-widest uppercase flex items-center gap-1.5"><i class="fa-solid fa-location-dot text-sys-text-muted w-4 opacity-50"></i> ${exp.location}</div>
                             </td>
-                            <td class="py-4 px-5 text-right"><span class="font-extrabold text-sys-text-main text-base tracking-tight">${formatCurrency(exp.price)}</span></td>
-                            <td class="py-4 px-3 no-print text-right whitespace-nowrap">
-                                <button onclick="editExpense(${exp.id})" class="text-sys-text-muted hover:text-dev-main transition p-2 mr-1 glass-panel rounded-xl border-none shadow-sm"><i class="fa-solid fa-edit"></i></button>
-                                <button onclick="deleteExpense(${exp.id})" class="text-sys-text-muted hover:text-rose-500 transition p-2 glass-panel rounded-xl border-none shadow-sm"><i class="fa-solid fa-trash-can"></i></button>
+                            <td class="py-5 px-6 text-right"><span class="font-black text-sys-text-main text-lg tracking-tight">${formatCurrency(exp.price)}</span></td>
+                            <td class="py-5 px-4 no-print text-right whitespace-nowrap">
+                                <button onclick="editExpense(${exp.id})" class="text-sys-text-muted hover:text-dev-main transition p-2.5 mr-1 glass-panel rounded-xl border-none shadow-sm"><i class="fa-solid fa-edit"></i></button>
+                                <button onclick="deleteExpense(${exp.id})" class="text-sys-text-muted hover:text-rose-500 transition p-2.5 glass-panel rounded-xl border-none shadow-sm"><i class="fa-solid fa-trash-can"></i></button>
                             </td>
                         </tr>
                     `);
@@ -606,25 +645,26 @@
                 tbody.innerHTML = htmlBuffer.join('');
             }
 
+            // Dashboard Horizontal Assembly
             let dashHtml = [];
             dashHtml.push(`
-            <div class="glass-panel p-5 rounded-3xl flex items-center gap-4 sm:gap-5 transition-all duration-300 hover:-translate-y-1 shadow-md">
-                <div class="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl flex items-center justify-center text-sys-text-main text-xl sm:text-2xl glass-input border-none shadow-inner flex-shrink-0"><i class="fa-solid fa-money-bill-wave"></i></div>
-                <div class="min-w-0"><span class="text-[9px] sm:text-[10px] text-sys-text-muted font-bold block uppercase tracking-widest mb-0.5 truncate">Filtered Aggregate</span><span class="text-xl sm:text-2xl font-black text-transparent bg-clip-text bg-gradient-to-r from-dev-main to-purple-500 tracking-tight truncate">${formatCurrency(total)}</span></div>
+            <div class="glass-panel p-6 rounded-[2rem] flex items-center gap-5 transition-all duration-300 hover:scale-[1.02] shadow-xl min-w-[280px] snap-center-item border-none">
+                <div class="w-16 h-16 rounded-[1.5rem] flex items-center justify-center text-sys-text-main text-2xl glass-input border-none shadow-inner flex-shrink-0 bg-black/5 dark:bg-white/5"><i class="fa-solid fa-money-bill-wave"></i></div>
+                <div class="min-w-0"><span class="text-[10px] text-sys-text-muted font-bold block uppercase tracking-widest mb-1 truncate">Total Filtered</span><span class="text-2xl font-black text-transparent bg-clip-text bg-gradient-to-r from-dev-main to-purple-500 tracking-tight truncate">${formatCurrency(total)}</span></div>
             </div>`);
 
             Object.keys(userTotals).forEach(name => {
                 const userObj = database.users.find(u => u.name === name); const isFemale = userObj && userObj.gender === 'Female';
                 dashHtml.push(`
-                <div class="glass-panel p-5 rounded-3xl flex items-center gap-4 sm:gap-5 transition-all duration-300 hover:-translate-y-1">
-                    <div class="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl flex items-center justify-center text-sys-text-muted text-xl sm:text-2xl glass-input border-none shadow-inner flex-shrink-0"><i class="fa-solid ${isFemale ? 'fa-person-dress' : 'fa-person'}"></i></div>
-                    <div class="min-w-0"><span class="text-[9px] sm:text-[10px] text-sys-text-muted font-bold block uppercase tracking-widest mb-0.5 truncate">${name}'s Node</span><span class="text-lg sm:text-xl font-extrabold text-sys-text-main tracking-tight truncate">${formatCurrency(userTotals[name])}</span></div>
+                <div class="glass-panel p-6 rounded-[2rem] flex items-center gap-5 transition-all duration-300 hover:scale-[1.02] shadow-md min-w-[280px] snap-center-item border-none">
+                    <div class="w-16 h-16 rounded-[1.5rem] flex items-center justify-center text-sys-text-muted text-2xl glass-input border-none shadow-inner flex-shrink-0 bg-black/5 dark:bg-white/5"><i class="fa-solid ${isFemale ? 'fa-person-dress' : 'fa-person'}"></i></div>
+                    <div class="min-w-0"><span class="text-[10px] text-sys-text-muted font-bold block uppercase tracking-widest mb-1 truncate">${name}'s Node</span><span class="text-xl font-black text-sys-text-main tracking-tight truncate">${formatCurrency(userTotals[name])}</span></div>
                 </div>`);
             });
             document.getElementById('dashboardCards').innerHTML = dashHtml.join('');
         }
 
-        // --- MANUAL IPHONE SMS PARSER (FIXED IOS PERMISSION BUG) ---
+        // --- MANUAL IPHONE SMS PARSER ---
         async function checkClipboardForSMS() {
             try {
                 const clipboardText = await navigator.clipboard.readText();
@@ -643,20 +683,45 @@
             } catch (err) { alert("Clipboard observation bypassed or access denied by device."); }
         }
 
-        // --- MULTI-MODEL AI AGENT REQUEST ---
-        async function requestTrueAIAnalysis() {
+        // --- EXPANDED MULTI-MODEL AI AGENT REQUEST ---
+        async function requestTrueAIAnalysis(mode = 'standard') {
             if(!vaultMasterKey || database.expenses.length === 0) return document.getElementById('coachMessage').innerHTML = `<span class="text-rose-500 font-bold">Please log expenses first.</span>`;
             const config = getApiConfig();
             if(!config) return document.getElementById('coachMessage').innerHTML = `<span class="text-dev-main font-bold"><i class="fa-solid fa-triangle-exclamation"></i> No API Key Found. Check Settings.</span>`;
 
-            const btn = document.getElementById('aiGenerateBtn');
-            btn.disabled = true; btn.innerHTML = '<i class="fa-solid fa-circle-notch fa-spin"></i> Processing...';
-            document.getElementById('coachMessage').innerHTML = `<div class="flex items-center gap-3 font-bold text-dev-main"><i class="fa-solid fa-network-wired fa-fade text-xl"></i> Transmitting encrypted ledger to ${config.provider === 'openai' ? 'ChatGPT' : 'Gemini'}...</div>`;
+            document.getElementById('coachMessage').innerHTML = `<div class="flex flex-col items-center justify-center gap-3 font-bold text-dev-main py-4"><i class="fa-solid fa-network-wired fa-fade text-3xl"></i> Transmitting encrypted ledger payload to ${config.provider === 'openai' ? 'ChatGPT' : 'Gemini'}...</div>`;
             
             const currCode = localStorage.getItem('coach_currency') || 'INR';
-            const dataString = database.expenses.map(e => `${e.date} | ${e.spender} spent ${e.price} ${currCode} on ${e.item} (${e.category}) at ${e.store}.`).join('\n');
+            
+            // Context Optimization: Calculate top level metrics to save AI tokens
+            let totalSpend = 0; let catTotals = {}; let userTotals = {};
+            database.expenses.forEach(e => { 
+                totalSpend += e.price; 
+                catTotals[e.category] = (catTotals[e.category] || 0) + e.price; 
+                userTotals[e.spender] = (userTotals[e.spender] || 0) + e.price; 
+            });
+            const topCategory = Object.keys(catTotals).reduce((a, b) => catTotals[a] > catTotals[b] ? a : b, "");
+            
+            const dataString = database.expenses.map(e => `${e.date} | ${e.spender} spent ${e.price} ${currCode} on ${e.item} (${e.category})`).join('\n');
             const profilesString = database.users.map(u => `${u.name} (Role: ${u.relation})`).join(', ');
-            const prompt = `You are a strict financial advisor. Analyze this spending for a household with these profiles: ${profilesString}. Currency is ${currCode}.\n\nData:\n${dataString}\n\nTasks:\n1) Highlight trends.\n2) Break down spending by profile.\n3) Give 3 strict optimization tips. Format with HTML bolding and bullet points.`;
+            
+            let prompt = `You are an elite financial advisor. Analyze this spending for a household with these profiles: ${profilesString}. Currency: ${currCode}. Total Spent: ${totalSpend}. Top Category: ${topCategory}.\n\nRaw Ledger Data:\n${dataString}\n\n`;
+
+            if(mode === 'standard') prompt += `Task: Provide a deep structural audit. 1) Highlight hidden trends. 2) Break down spending efficiency by profile. 3) Give 3 strict optimization rules.`;
+            else if(mode === 'savings') prompt += `Task: Create a highly specific Savings Blueprint. Identify exactly which items or categories to cut to reduce total spending by 20% next month. Be specific.`;
+            else if(mode === 'roast') prompt += `Task: Ruthless Roast Mode. Be highly aggressive, sarcastic, and funny. Tear apart their bad financial decisions, especially overspending on luxury or food. Give no mercy.`;
+            else if(mode === 'invest') {
+                const marketHint = currCode === 'INR' ? "Suggest specific Indian market sectors (Nifty, fintech, banking)." : "Suggest global market strategies.";
+                prompt += `Task: Investment Edge. Assume they have an extra 15% of their total spend sitting in cash. ${marketHint} Where should they deploy this capital based on their spending habits?`;
+            }
+            else if(mode === 'custom') {
+                const query = document.getElementById('customAiQuery').value.trim();
+                if(!query) return document.getElementById('coachMessage').innerHTML = `<span class="text-rose-500 font-bold">Please type a question first.</span>`;
+                prompt += `Task: Answer the user's specific question: "${query}"`;
+                document.getElementById('customAiQuery').value = '';
+            }
+
+            prompt += ` Format with HTML bolding and bullet points ONLY. Keep it concise and high-impact.`;
 
             try {
                 let aiText = "";
@@ -670,11 +735,7 @@
                     aiText = data.choices[0].message.content;
                 }
                 document.getElementById('coachMessage').innerHTML = aiText.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>').replace(/\*(.*?)\n/g, '<li>$1</li>');
-            } catch (error) { 
-                document.getElementById('coachMessage').innerHTML = `<span class="text-rose-500 font-bold"><i class="fa-solid fa-circle-xmark"></i> Connection Error: ${error.message}</span>`; 
-            } finally {
-                btn.disabled = false; btn.innerHTML = '<i class="fa-solid fa-bolt"></i> Generate Insight';
-            }
+            } catch (error) { document.getElementById('coachMessage').innerHTML = `<span class="text-rose-500 font-bold"><i class="fa-solid fa-circle-xmark"></i> Connection Error: ${error.message}</span>`; }
         }
         
         initializeApp();
