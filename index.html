@@ -44,8 +44,7 @@
 
         .glass-panel { background: var(--sys-surface-glass); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border: 1px solid var(--sys-border-glass); box-shadow: var(--glass-shadow); }
         
-        /* Mobile Scale Optimization */
-        .glass-input { background: var(--sys-input-glass); border: 1px solid var(--sys-border-glass); color: var(--sys-text-main); transition: all 0.3s ease; font-size: 16px; /* Prevents iOS auto-zoom */ }
+        .glass-input { background: var(--sys-input-glass); border: 1px solid var(--sys-border-glass); color: var(--sys-text-main); transition: all 0.3s ease; font-size: 16px; }
         .glass-input:focus { outline: none; border-color: var(--dev-main); box-shadow: 0 0 0 2px rgba(128,128,128,0.1); }
         
         .btn-premium { background: linear-gradient(135deg, var(--dev-main), var(--dev-hover)); color: var(--dev-btn-text); box-shadow: 0 4px 15px rgba(0,0,0,0.1); transition: all 0.3s ease; }
@@ -59,11 +58,6 @@
 
     <div id="securityShieldGateway" class="fixed inset-0 z-50 flex items-center justify-center p-4" style="background: var(--sys-bg); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);">
         <div class="glass-panel rounded-3xl p-6 sm:p-8 w-full max-w-md text-center space-y-5 shadow-2xl relative overflow-hidden">
-            <div id="decryptLoader" class="absolute inset-0 bg-black/60 backdrop-blur-md z-20 hidden flex-col items-center justify-center text-white">
-                <i class="fa-solid fa-circle-notch fa-spin text-4xl mb-3 text-dev-main"></i>
-                <p class="font-bold tracking-widest uppercase text-[10px]">Decrypting Vault...</p>
-            </div>
-
             <div class="mb-6 border-b border-black/5 dark:border-white/5 pb-4">
                 <div class="w-16 h-16 rounded-2xl flex items-center justify-center mx-auto text-2xl glass-panel text-dev-main shadow-lg mb-3">
                     <i id="lockIcon" class="fa-solid fa-shield-halved"></i>
@@ -80,7 +74,7 @@
                 <input type="password" id="masterPasswordField" placeholder="Passphrase..." class="w-full glass-input rounded-2xl px-4 py-3.5 text-center tracking-widest font-bold">
                 <div id="hintSetupContainer" class="hidden">
                     <p class="text-[10px] text-rose-500 font-bold mb-1 text-left"><i class="fa-solid fa-triangle-exclamation"></i> IF YOU FORGET THIS, DATA IS LOST FOREVER. Set a hint:</p>
-                    <input type="text" id="passwordHintField" placeholder="Optional: Mother's maiden name + birth year..." class="w-full glass-input rounded-xl px-4 py-2.5 text-xs">
+                    <input type="text" id="passwordHintField" placeholder="Optional: Pet name + birth year..." class="w-full glass-input rounded-xl px-4 py-2.5 text-xs">
                 </div>
                 <button onclick="triggerDecryptionPipeline()" id="gatewayAuthBtn" class="w-full btn-premium font-bold py-3.5 rounded-2xl flex items-center justify-center gap-2"><i class="fa-solid fa-unlock"></i> Unlock Database</button>
                 <button id="showHintBtn" onclick="showPasswordHint()" class="text-xs text-sys-text-muted hover:text-sys-text-main font-bold underline decoration-dotted hidden w-full">Forgot Password? View Hint</button>
@@ -110,7 +104,7 @@
                             <div><label class="block text-[10px] font-bold text-sys-text-muted uppercase tracking-widest mb-1.5 ml-1">Age</label><input type="number" id="newUserAge" required class="w-full glass-input rounded-xl px-3.5 py-2.5"></div>
                             <div><label class="block text-[10px] font-bold text-sys-text-muted uppercase tracking-widest mb-1.5 ml-1">Gender</label><select id="newUserGender" required class="w-full glass-input rounded-xl px-3.5 py-2.5"><option>Male</option><option>Female</option><option>Other</option></select></div>
                             <div>
-                                <label class="block text-[10px] font-bold text-sys-text-muted uppercase tracking-widest mb-1.5 ml-1">System Role / Relation</label>
+                                <label class="block text-[10px] font-bold text-sys-text-muted uppercase tracking-widest mb-1.5 ml-1">System Role</label>
                                 <select id="newUserRelation" required class="w-full glass-input rounded-xl px-3.5 py-2.5 font-bold">
                                     <option value="Admin">Admin (System Owner)</option>
                                     <option value="Self">Self</option>
@@ -167,6 +161,7 @@
                 </div>
             </div>
             <div class="flex flex-wrap items-center gap-2 sm:gap-3 w-full md:w-auto no-print">
+                <button onclick="checkClipboardForSMS()" class="text-xs btn-premium font-bold px-3 sm:px-4 py-3 rounded-xl transition flex items-center justify-center gap-2 flex-1 md:flex-none shadow-sm"><i class="fa-solid fa-comment-sms"></i> Auto-Log</button>
                 <div class="flex items-center gap-2 glass-input px-3 py-2.5 rounded-xl flex-1 md:flex-none">
                     <i class="fa-solid fa-earth-americas text-sys-text-muted"></i>
                     <select id="currencySelector" onchange="changeCurrency()" class="bg-transparent text-xs text-sys-text-main font-bold focus:outline-none cursor-pointer appearance-none w-full">
@@ -178,7 +173,7 @@
                         <option value="AUD">AUD ($) Australia</option>
                     </select>
                 </div>
-                <div class="flex items-center gap-2 glass-input px-3 py-2.5 rounded-xl flex-1 md:flex-none">
+                <div class="flex items-center gap-2 glass-input px-3 py-2.5 rounded-xl flex-1 md:flex-none hidden md:flex">
                     <i class="fa-solid fa-palette text-sys-text-muted"></i>
                     <select id="themeSelector" onchange="changeTheme()" class="bg-transparent text-xs text-sys-text-main font-bold focus:outline-none cursor-pointer appearance-none w-full">
                         <option value="default">Glass Clean</option><option value="cyber">Cyber Mesh</option><option value="luxury">Obsidian</option><option value="vedic">Aura</option>
@@ -319,23 +314,17 @@
             return new Intl.NumberFormat(locales[code], { style: 'currency', currency: code }).format(amount);
         }
 
-        // --- HIGH PERFORMANCE DECRYPTION PIPELINE ---
+        // --- INSTANT DECRYPTION PIPELINE (FIXED IOS BUG) ---
         function triggerDecryptionPipeline() {
             const passwordInput = document.getElementById('masterPasswordField').value;
             if (!passwordInput) return alert("System halt: Passphrase required.");
-
-            // Show Loader UI first, then execute heavy crypto block
-            document.getElementById('decryptLoader').classList.remove('hidden');
-            document.getElementById('decryptLoader').style.display = 'flex';
-            
-            setTimeout(() => { authenticateSecurityGateway(passwordInput); }, 50);
+            authenticateSecurityGateway(passwordInput);
         }
 
         function authenticateSecurityGateway(passwordInput) {
             const rawCiphertext = localStorage.getItem('dev_paddy_crypto_vault');
 
             if (!rawCiphertext) {
-                // NEW VAULT CREATION
                 vaultMasterKey = passwordInput;
                 database = { expenses: [], users: [] };
                 saveEncryptedDatabase();
@@ -344,9 +333,7 @@
                 if(hint) localStorage.setItem('coach_password_hint', hint);
 
                 unlockUiGateway();
-                checkClipboardForSMS();
             } else {
-                // EXISTING VAULT DECRYPTION
                 try {
                     const bytes = CryptoJS.AES.decrypt(rawCiphertext, passwordInput);
                     const plaintextDataString = bytes.toString(CryptoJS.enc.Utf8);
@@ -354,7 +341,6 @@
 
                     const parsedData = JSON.parse(plaintextDataString);
                     
-                    // Legacy Format Upgrader
                     if (Array.isArray(parsedData)) {
                         database = { expenses: parsedData, users: [] };
                         const existingSpenders = [...new Set(parsedData.map(e => e.spender))];
@@ -367,10 +353,7 @@
                     vaultMasterKey = passwordInput; 
                     unlockUiGateway();
                     updateUI();
-                    checkClipboardForSMS();
-
                 } catch (error) {
-                    document.getElementById('decryptLoader').classList.add('hidden');
                     document.getElementById('securityGatewayError').classList.remove('hidden');
                     document.getElementById('masterPasswordField').value = '';
                     document.getElementById('masterPasswordField').focus();
@@ -392,7 +375,6 @@
 
         function unlockUiGateway() {
             document.getElementById('securityShieldGateway').classList.add('hidden');
-            document.getElementById('decryptLoader').classList.add('hidden');
             
             const adminUser = database.users.find(u => u.relation.toLowerCase() === 'admin');
             const coachDiv = document.getElementById('coachMessage');
@@ -584,7 +566,6 @@
             const kw = document.getElementById('searchKeyword').value.toLowerCase(); const fMonth = document.getElementById('searchMonth').value; const fDate = document.getElementById('searchDate').value;
             let total = 0; let userTotals = {}; database.users.forEach(u => userTotals[u.name] = 0);
 
-            // Filter logic
             let filtered = database.expenses.filter(exp => {
                 let match = true;
                 if(kw) match = exp.item.toLowerCase().includes(kw) || exp.store.toLowerCase().includes(kw) || exp.notes.toLowerCase().includes(kw) || exp.category.toLowerCase().includes(kw);
@@ -593,7 +574,6 @@
                 return match;
             });
 
-            // Fast DOM Assembly via HTML Array Joining (Prevents Mobile Thrashing)
             const tbody = document.getElementById('ledgerBody');
             if (filtered.length === 0) {
                 tbody.innerHTML = `<tr><td colspan="5" class="text-center py-16 text-sys-text-muted font-bold">No vault records found matching active filters.</td></tr>`;
@@ -626,7 +606,6 @@
                 tbody.innerHTML = htmlBuffer.join('');
             }
 
-            // Dashboard Assembly
             let dashHtml = [];
             dashHtml.push(`
             <div class="glass-panel p-5 rounded-3xl flex items-center gap-4 sm:gap-5 transition-all duration-300 hover:-translate-y-1 shadow-md">
@@ -645,7 +624,7 @@
             document.getElementById('dashboardCards').innerHTML = dashHtml.join('');
         }
 
-        // --- IPHONE SMS PARSER ---
+        // --- MANUAL IPHONE SMS PARSER (FIXED IOS PERMISSION BUG) ---
         async function checkClipboardForSMS() {
             try {
                 const clipboardText = await navigator.clipboard.readText();
@@ -659,9 +638,9 @@
                             database.expenses.unshift({ id: Date.now(), spender: defaultSpender, item: parsedMerchant, price: parsedAmount, category: "Groceries & Daily Needs", store: parsedMerchant, location: "Online / UPI", date: new Date().toISOString().split('T')[0], time: `${String(new Date().getHours()).padStart(2, '0')}:${String(new Date().getMinutes()).padStart(2, '0')}`, paymentMethod: "Mobile App / UPI", notes: `Auto SMS: "${clipboardText}"` });
                             saveEncryptedDatabase(); updateUI(); await navigator.clipboard.writeText(""); 
                         }
-                    }
-                }
-            } catch (err) { console.log("Clipboard observation bypassed."); }
+                    } else { alert("No valid transaction amount found in clipboard."); }
+                } else { alert("Clipboard does not contain a recognized bank transaction SMS."); }
+            } catch (err) { alert("Clipboard observation bypassed or access denied by device."); }
         }
 
         // --- MULTI-MODEL AI AGENT REQUEST ---
